@@ -16,4 +16,4 @@ Medicinal and biological chemist by degree but budding web developer by (long ho
 
 ### What Have I Worked On?
 
-Vist my projects page or [github](https://github.com/wingraptor) to see what I've made done so far!
+Vist my [projects page](/projects/) or [github](https://github.com/wingraptor) to see what I've made done so far!
