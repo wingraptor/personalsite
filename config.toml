@@ -1,16 +1,15 @@
 baseurl = "http://www.example.com"
 title = "Akono Brathwaite"
-
-theme = "coder"
-
+theme = "coder-portfolio"
 languagecode = "en"
 
 paginate = 20
 canonifyurls = true
 
-pygmentsstyle = "monokai"
-pygmentscodefences = true
-pygmentscodefencesguesssyntax = true
+pygmentsstyle = "b2" # Color-theme or style for syntax highlighting.
+pygmentscodefences = true # Enable code fence background highlighting.
+pygmentscodefencesguesssyntax = true # Enable syntax guessing for code fences without specified language.
+pygmentsUseClasses = true # new add
 
 disqusShortname = "yourdiscussshortname"
 
@@ -29,12 +28,16 @@ disqusShortname = "yourdiscussshortname"
 
     rtl = false
 
+    # snsShare = true # share button to bottom of page
+
+    thumbnail = "images/tn.png" # default sns thumbnail
+
     # Custom CSS
     custom_css = []
 
+# Social links
 [[params.social]]
     name = "Github"
-    icon = "fab fa-github"
     weight = 1
     url = "https://github.com/wingraptor/"
 # [[params.social]]
@@ -44,12 +47,10 @@ disqusShortname = "yourdiscussshortname"
 #     url = "https://gitlab.com/johndoe/"
 [[params.social]]
     name = "Twitter"
-    icon = "fab fa-twitter"
     weight = 3
     url = "https://twitter.com/akonobrath/"
 [[params.social]]
     name = "LinkedIn"
-    icon = "fab fa-linkedin"
     weight = 4
     url = "https://www.linkedin.com/in/akono-brathwaite-a0446297/"
 # [[params.social]]
@@ -58,6 +59,7 @@ disqusShortname = "yourdiscussshortname"
 #     weight = 5
 #     url = "https://medium.com/@johndoe"
 
+# Menu links
 [[menu.main]]
     name = "Blog"
     weight = 1
