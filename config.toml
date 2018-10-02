@@ -8,7 +8,7 @@ languagecode = "en"
 paginate = 20
 canonifyurls = true
 
-pygmentsstyle = "b2"
+pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
