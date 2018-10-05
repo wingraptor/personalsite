@@ -1,6 +1,6 @@
 baseurl = "https://www.akonobrathwaite.com"
 title = "Akono Brathwaite"
-theme = "coder-portfolio"
+theme = ["coder-portfolio-edited", "coder-portfolio"]
 languagecode = "en"
 
 paginate = 20
