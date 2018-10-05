@@ -132,29 +132,32 @@ chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2); //Output: [[0, 1], [2, 3], [4, 5]]
 **Function Call 1**
 --
 **size = 2**
-|  Loop Iteration|beginIndex| endIndex  |    
-|--|--|--|--|
-| 1 | 0 |		2|
-|2|2|4|
+
+
+| Loop Iteration | beginIndex | endIndex |
+|----------------|------------|----------|
+| 1              | 0          | 2        |
+| 2              | 2          | 4        |
 
 
 **Function Call 2**
 --
 **size = 3**
-|  Loop Iteration|beginIndex| endIndex  |    |
-|--|--|--|--|
-| 1 | 0 |		3|
-|2|3|6|
+
+| Loop Iteration | beginIndex | endIndex |
+|----------------|------------|----------|
+| 1              | 0          | 3        |
+| 2              | 3          | 6        |
 
 
 **Function Call 3**
 --
 **size = 2**
-|  Loop Iteration|beginIndex| endIndex  |    |
-|--|--|--|--|
-| 1 | 0 |		2|
-|2|2|4|
-|3|4|6|
+
+| Loop Iteration | beginIndex | endIndex |
+|----------------|------------|----------|
+| 1              | 0          | 2        |
+| 3              | 4          | 6        |
 
 
 Two conclusions can be drawn from the tables above: 
@@ -197,6 +200,11 @@ Final iteration of for loop for Function Call 5
 |  Loop Iteration|beginIndex| endIndex  |
 |--|--|--|--|
 | 3 | 6 |		9|
+
+| Loop Iteration | beginIndex | endIndex |
+|----------------|------------|----------|
+| 3              | 6          | 9        |
+
 
 This final iteration of the for loop extracts the element with index 6, up to, but not including the element with index 9. In this case **arr** does not contain an element with index 9. Because of this the slice method just extracts all remaining elements into the final sub-array. See the [MDN webdocs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) for more information. 
 
