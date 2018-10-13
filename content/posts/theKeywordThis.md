@@ -216,7 +216,8 @@ colt.addNumbers.apply(ellie, [1,2,3,4]) //Ellie just calculated 10
 ####  Using The Bind Method
 The bind method works just like the call method, but instead of calling the method right away, it returns a function definition with the keyword this set to the value of the first argument in the bind method. 
 
-1. Bind is useful when we do not know all of the arguments that will be passed to the function; we do not want to invoke the function right away but want to return a new function with some parameters set. This is known as **partial application** .
+1. Bind is useful when we do not know all of the arguments that will be passed to the function; we do not want to invoke the function right away but want to return a new function with some parameters set. This is known as **partial application**.
+
 ```javascript
 var colt = {
 	firstName: "Colt",
@@ -242,6 +243,7 @@ ellieCalc2(3,4,); // Ellie just calculated 10.
 //(1+2) were passed in as function was defined, 
 //(3+4) were passed in on function call.
 ```
+
 &nbsp;
 
 2. Bind is also useful for asynchronous programming. The setTimeout method takes two arguments, the function that will be called and the time interval in ms-1. It is actually a method of the window object. 
