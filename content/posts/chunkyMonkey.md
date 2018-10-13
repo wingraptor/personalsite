@@ -68,6 +68,10 @@ Function calls 1-3 all yielded whole numbers where the output represented the nu
 **Code Snippet 3**
 
 ```js
+function chunkArrayInGroups(arr, size) {
+  return newArr;
+}
+
 chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3); 
 // Output: [[0, 1, 2], [3, 4, 5]] // arr.length / size = 2
 // 2 sub-arrays each containing 3 (size) elements
@@ -82,6 +86,10 @@ Function calls 4-7 all yielded fractions. What I noticed is that whatever functi
 **Code Snippet 4**
 
 ```js
+function chunkArrayInGroups(arr, size) {
+  return newArr;
+}
+
 chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4); 
 //Output: [[0, 1, 2, 3], [4, 5]] // arr.length / size= 1.5
 // 2 sub-arrays, one containing size number of elements.
@@ -157,6 +165,7 @@ chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2); //Output: [[0, 1], [2, 3], [4, 5]]
 | Loop Iteration | beginIndex | endIndex |
 |----------------|------------|----------|
 | 1              | 0          | 2        |
+| 2              | 2          | 4        |
 | 3              | 4          | 6        |
 
 
