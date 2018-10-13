@@ -1,3 +1,8 @@
++++
+date = "2018-10-13"
+title = "The Keyword this"
+
++++
 ## What is the keyword this?
 
 'this' is a reserved word in Javascript and is usually determined by how a function is called, i.e., its **execution context**.  Its value is determined at execution. The value of the keyword this can determined using four "rules":
