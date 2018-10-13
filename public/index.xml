@@ -2,32 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Akono Brathwaite</title>
-    <link>http://www.example.com/</link>
+    <link>https://www.akonobrathwaite.com/</link>
     <description>Recent content on Akono Brathwaite</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Tue, 15 May 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://www.example.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.akonobrathwaite.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title></title>
-      <link>http://www.example.com/posts/firstpost/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Chunky Monkey Algorithm Challenge🐒</title>
+      <link>https://www.akonobrathwaite.com/posts/chunkymonkey/</link>
+      <pubDate>Tue, 15 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/posts/firstpost/</guid>
-      <description>+++ date = &amp;ldquo;2018-03-30&amp;rdquo; title = &amp;ldquo;First Post&amp;rdquo; +++
-Welcome to my blog. This is my very first post 🙌 and therefore I&amp;rsquo;m going to answer the who, what and why of this blog. To those of you who may be reading this far into the future, bear in mind that change is guaranteed and the answers to those three questions will change by the time you read this.</description>
+      <guid>https://www.akonobrathwaite.com/posts/chunkymonkey/</guid>
+      <description>Today I was able to solve what in reality is a basic Javascript algorithm. For those of you who are more experienced with coding, this algorithm will be easy, but for me, it was a fun challenge. In this post I&amp;rsquo;ll attempt to explain the steps that I (eventually) took to solve it. So buckle up buckaroos and join me on a coding journey.
+The Chunky Monkey algorithm is part of the FreeCodeCamp Front-End Web Development Certification.</description>
+    </item>
+    
+    <item>
+      <title>Web Development on My Chromebook</title>
+      <link>https://www.akonobrathwaite.com/posts/developmentonchromebook/</link>
+      <pubDate>Mon, 07 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.akonobrathwaite.com/posts/developmentonchromebook/</guid>
+      <description>I know what you&amp;rsquo;re thinking, a Chromebook&amp;hellip;.for web development. Surely a glorified Chrome browser is not suitable for creating web apps and websites. However, you&amp;rsquo;d be wrong .
+Surprise surprise, I&amp;rsquo;m a huge Chromebook fan, so much so that my primary device is the Samsung Chromebook Pro. From the time I used my first chromebook, the Acer C720, I fell in love with their super quick boot up times, hassle-free update handling, excellent battery life and minimalist approach to web browsing.</description>
+    </item>
+    
+    <item>
+      <title>Switching It Up With Switch Statements</title>
+      <link>https://www.akonobrathwaite.com/posts/switchstatements/</link>
+      <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.akonobrathwaite.com/posts/switchstatements/</guid>
+      <description>What are Switch Statements? This is another form of &amp;lsquo;conditional logic&amp;rsquo; that can be used in a javascript program (think If/else statements). Switch statements are useful when many conditions are being evaluated because they can be easier to type or read compared with using if/else statements.
+Syntax switch (expression) { case value1: //Statements executed when the //result of expression matches value1 break; case value2: //Statements executed when the //result of expression matches value2 break; .</description>
+    </item>
+    
+    <item>
+      <title>A Beginner&#39;s Introuction to Variables</title>
+      <link>https://www.akonobrathwaite.com/posts/introductiontovariables/</link>
+      <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.akonobrathwaite.com/posts/introductiontovariables/</guid>
+      <description>In the spirit 👻of keeping things simple and at a beginner level I am going to attempt to explain one of the fundamental aspects of javascript and programming in general, variables. Variables was one of the first concepts that I encountered when I started to learn to code and is one of the easiest to grasp.
+What are Variables? Variables are simply containers for storing things called values. If you&amp;rsquo;re like me you&amp;rsquo;ve only ever encountered variables in Mathematics😱 and they are fundamentally the same in programming.</description>
+    </item>
+    
+    <item>
+      <title>First Post</title>
+      <link>https://www.akonobrathwaite.com/posts/firstpost/</link>
+      <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.akonobrathwaite.com/posts/firstpost/</guid>
+      <description>Welcome to my blog. This is my very first post 🙌 and therefore I&amp;rsquo;m going to answer the who, what and why of this blog. To those of you who may be reading this far into the future, bear in mind that change is guaranteed and the answers to those three questions will change by the time you read this.
+Who am I? I&amp;rsquo;m Akono (this shouldn&amp;rsquo;t change) and at the time of writing I&amp;rsquo;m a beginner when it comes to web development&amp;hellip;.</description>
     </item>
     
     <item>
       <title>About Me</title>
-      <link>http://www.example.com/about/</link>
+      <link>https://www.akonobrathwaite.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/about/</guid>
+      <guid>https://www.akonobrathwaite.com/about/</guid>
       <description>Who Am I? Medicinal and biological chemist by degree but budding web developer by (long hours of) practice. Currently infatuated with building websites and web apps which I use as a way to express various ideas that I have in my head.
-What Do I Know?  Javascript along with knowledge of jQuery and NodeJs CSS along with knowledge of Bootstrap HTML  What Have I Worked On? Vist my projects page or github to see what I&amp;rsquo;ve made done so far!</description>
+What Do I Know?  Javascript along with knowledge of jQuery and NodeJs CSS along with knowledge of Bootstrap HTML  What Have I Worked On? Vist my projects page or Github to see what I&amp;rsquo;ve made done so far!</description>
     </item>
     
   </channel>

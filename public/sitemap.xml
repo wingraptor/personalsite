@@ -3,30 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://www.example.com/posts/firstpost/</loc>
+    <loc>https://www.akonobrathwaite.com/posts/chunkymonkey/</loc>
+    <lastmod>2018-05-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/about/</loc>
+    <loc>https://www.akonobrathwaite.com/posts/developmentonchromebook/</loc>
+    <lastmod>2018-05-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/</loc>
+    <loc>https://www.akonobrathwaite.com/posts/switchstatements/</loc>
+    <lastmod>2018-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.akonobrathwaite.com/posts/introductiontovariables/</loc>
+    <lastmod>2018-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.akonobrathwaite.com/posts/firstpost/</loc>
+    <lastmod>2018-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.akonobrathwaite.com/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.akonobrathwaite.com/</loc>
+    <lastmod>2018-05-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.example.com/categories/</loc>
+    <loc>https://www.akonobrathwaite.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.example.com/posts/</loc>
+    <loc>https://www.akonobrathwaite.com/posts/</loc>
+    <lastmod>2018-05-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.example.com/tags/</loc>
+    <loc>https://www.akonobrathwaite.com/tags/</loc>
     <priority>0</priority>
   </url>
   

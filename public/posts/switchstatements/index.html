@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Akono Brathwaite">
+    <meta name="description" content="https://www.akonobrathwaite.com">
+    <meta name="keywords" content="blog,developer,personal">
+    
+    <meta property="og:site_name" content="Akono Brathwaite">
+    <meta property="og:title" content="
+  Switching It Up With Switch Statements - Akono Brathwaite
+">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.akonobrathwaite.com/posts/switchstatements/">
+    <meta property="og:image" content="https://www.akonobrathwaite.com">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="https://www.akonobrathwaite.com/posts/switchstatements/">
+    <meta name="twitter:image" content="https://www.akonobrathwaite.com">
+
+    <base href="https://www.akonobrathwaite.com">
+    <title>
+  Switching It Up With Switch Statements - Akono Brathwaite
+</title>
+
+    <link rel="canonical" href="https://www.akonobrathwaite.com/posts/switchstatements/">
+    
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="https://www.akonobrathwaite.com/css/style.min.css">
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://www.akonobrathwaite.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://www.akonobrathwaite.com/images/favicon-16x16.png" sizes="16x16">
+
+    
+
+    <meta name="generator" content="Hugo 0.49" />
+  </head>
+
+  <body class="">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://www.akonobrathwaite.com/">
+      Akono Brathwaite
+    </a>
+    <input type="checkbox" id="menu-control"/>
+    <label class="menu-mobile  float-right " for="menu-control">
+      <span class="btn-mobile  float-right ">&#9776;</span>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item   align-left  ">
+              <a class="navigation-link" href="https://www.akonobrathwaite.com/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item   align-left  ">
+              <a class="navigation-link" href="https://www.akonobrathwaite.com/about/">About</a>
+            </li>
+          
+            <li class="navigation-item   align-left  ">
+              <a class="navigation-link" href="https://www.akonobrathwaite.com/projects/">Projects</a>
+            </li>
+          
+        
+        
+      </ul>
+    </label>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+  <article>
+    <header>
+      <h1 class="title">Switching It Up With Switch Statements</h1>
+      <h2 class="date">April 9, 2018</h2>
+
+      
+    </header>
+
+    
+
+<h2 id="what-are-switch-statements">What are Switch Statements?</h2>
+
+<p>This is another form of &lsquo;conditional logic&rsquo; that can be used in a javascript program (think If/else statements). Switch statements are useful when many conditions are being evaluated because they can be easier to type or read compared with using if/else statements.</p>
+
+<h3 id="syntax">Syntax</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">switch</span> <span class="p">(</span><span class="nx">expression</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">case</span> <span class="nx">value1</span><span class="o">:</span>
+<span class="c1">//Statements executed when the
+</span><span class="c1">//result of expression matches value1
+</span><span class="c1"></span><span class="k">break</span><span class="p">;</span>
+<span class="k">case</span> <span class="nx">value2</span><span class="o">:</span>
+<span class="c1">//Statements executed when the
+</span><span class="c1">//result of expression matches value2
+</span><span class="c1"></span><span class="k">break</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="k">case</span> <span class="nx">valueN</span><span class="o">:</span>
+<span class="c1">//Statements executed when the
+</span><span class="c1">//result of expression matches valueN
+</span><span class="c1"></span><span class="k">break</span><span class="p">;</span>
+<span class="k">default</span><span class="o">:</span>
+<span class="c1">//Statements executed when none of
+</span><span class="c1">//the values match the value of the expression
+</span><span class="c1"></span><span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// break and default statements are optional.
+</span><span class="c1"></span></code></pre></div>
+<h3 id="description">Description</h3>
+
+<p>Switch statements evaluate an expression (found in parenthesis after the keyword &lsquo;switch&rsquo;) then looks for the first case clause whose expression (found after the keyword &lsquo;case&rsquo;) evaluates to the same value as the original input expression. A match occurs when the values are equal in value and type (strict comparison &lsquo;===&rsquo;). When this occurs the statement(s) in the matching clause are then executed.</p>
+
+<p>If a &lsquo;break;&rsquo; is present in that clause&rsquo;s statement then the program ceases execution of the switch statement and proceeds to the next statement after the switch statement. If there is no break present then the program continues to execute the next statement in the switch statement.</p>
+
+<p>Note that default is an optional clause whose statements are executed if no matching case clause expressions are found. It is most commonly the last clause in the switch statement but this is not a requirement.</p>
+
+<h3 id="example-1">Example 1:</h3>
+
+<iframe src="https://repl.it/@akonobrathwaite/Blog-Switch-Statements-Eg-1?lite=true" width="100%" height="400px" frameborder="no" scrolling="no" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals" allowfullscreen="allowfullscreen"></iframe>
+
+<p>In <strong>Example</strong> <strong>1:</strong> the variable fruit has been assigned the value &lsquo;Bananas&rsquo;. This is then used in the expression to be evaluated in the switch statement. The program goes through each case clause one by one until it finds the clause with the expression that evaluates to &lsquo;Bananas&rsquo;. It then executes the nested statement, which in this case logs &lsquo;Bananas are $0.48 a pound.&rsquo; to the console. The program encounters then encounters &lsquo;<strong>break</strong>&rsquo; which ceases execution of the switch statement .</p>
+
+<p>Go ahead and click the &ldquo;Play&rdquo; button to see what happens.</p>
+
+<h3 id="example-2">Example 2:</h3>
+
+<iframe src="https://repl.it/@akonobrathwaite/Blog-Switch-Statements-Eg-2?lite=true" width="100%" height="400px" frameborder="no" scrolling="no" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals" allowfullscreen="allowfullscreen"></iframe>
+
+<p>In <strong>Example 2</strong> the variable <a href="https://www.youtube.com/watch?v=sV2t3tW_JTQ">MsInBankAccount</a> has been assigned the value &lsquo;7Ms&rsquo;. This is then used as the expression to be evaluated by the switch statement. As you can see, the case clause with the matching expression logs &ldquo;You have one more M to go&rdquo; to the console. Note that there is no <strong>break</strong> in this case clause and because of this the statement in the next clause is executed. This then logs &lsquo;Welcome 21 Savage&rsquo; to the console as well. This statement does contain a <strong>break</strong> which then ceases execution of the switch statement.</p>
+
+<p>Note that MsInBankAccount could be 1M, 2Ms, 3Ms, 4Ms, 5Ms, 6Ms and the output would be the same as for 7Ms. 21 Savage would be proud.</p>
+
+<p><img src="https://media.giphy.com/media/3o8dFsv6Pw69TZzmLK/giphy.gif" alt="21Savage" /></p>
+
+  </article>
+
+  <br/>
+
+  
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+  
+</section>
+
+      </div>
+      
+    </main>
+
+    
+
+  <script src="https://www.akonobrathwaite.com/js/app.js"></script>
+  
+  </body>
+</html>
