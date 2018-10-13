@@ -70,6 +70,8 @@ variableInThis() //TypeError, can't set person on undefined.
 ```
 &nbsp;
 
+---
+
 ### 2.  Implicit /Object Rule
 When the keyword 'this' is inside of a declared object, the value of the keyword this will always be the closest parent object.
 
@@ -107,6 +109,8 @@ person.dog.determineContext(); // false
 ```
 &nbsp;
 
+---
+
 ### 3. Explicit Rule
 We can explicitly state what the value of the keyword 'this' will be by using call, apply or bind methods. 
 
@@ -122,7 +126,7 @@ Bind | thisArg,a,b,c,d... |NO
 &nbsp;
 
 
-#### Using The Call Method
+**Using The Call Method**
 
 In the example below, we explicitly change the value of 'this' in the sayHello function by calling the **call** method and passing 'person' as an argument. Person refers to the person object and thus this is explicitly given the value person.
 
@@ -149,7 +153,7 @@ person.dog.determineContext.call(person); // true
 ```
 &nbsp;
 
-##### Example: Using Call To DRY up Our Code
+**Example: Using Call To DRY up Our Code**
 
 The code below works, however, we have duplicated our code. We can however, tidy this up using the call method.
 ```javascript
@@ -189,7 +193,7 @@ colt.sayHi.call(ellie); // Hi Ellie
 ```
 &nbsp;
 
-#### Using The Apply Method
+**Using The Apply Method**
 
 In the example below we can see that call and apply work in the same way, but apply takes the arguments as an apply of values.
 
@@ -213,7 +217,8 @@ colt.addNumbers.apply(ellie, [1,2,3,4]) //Ellie just calculated 10
 ```
 &nbsp;
 
-####  Using The Bind Method
+**Using The Bind Method**
+
 The bind method works just like the call method, but instead of calling the method right away, it returns a function definition with the keyword this set to the value of the first argument in the bind method. 
 
 1. Bind is useful when we do not know all of the arguments that will be passed to the function; we do not want to invoke the function right away but want to return a new function with some parameters set. This is known as **partial application**.
