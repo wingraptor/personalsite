@@ -62,7 +62,7 @@ test([0,  1,  2,  3,  4,  5,  6],  3); //Output: 2.33
 test([0,  1,  2,  3,  4,  5,  6,  7,  8],  4); //Output: 2.25
 test([0,  1,  2,  3,  4,  5,  6,  7,  8],  2); //Output: 4.5
 ```
-Function calls 1-3 all yielded whole numbers where the output represented the number of sub-arrays present in **newArr** and **size** represented the number of elements in each sub-array when **chunkArrayInGroups** was called (See **Code Snippet 3**).
+Function calls 1-3 all yielded whole numbers where the output represented the number of sub-arrays present in **newArr** while **size** represented the number of elements in each sub-array when **chunkArrayInGroups** was called (See **Code Snippet 3**).
 
 
 **Code Snippet 3**
@@ -166,7 +166,7 @@ Two conclusions can be drawn from the tables above:
 
 3. **endIndex** = **beginIndex** + **size**
 
-Using this information, I created a variable, **count** that increases by  **size** during each iteration of the for loop and acts as the beginning index. The **endIndex** therefore becomes **count** + **size** based on the relationship described in conclusion 2 above.  
+Using this information, I created a variable, **count** that increases by  **size** during each iteration of the for loop and acts as the beginning index. The **endIndex** therefore becomes **count** + **size** based on the relationship described in the conclusion above.  
 
 **Code Snippet 7**
 ```js
@@ -197,9 +197,6 @@ chunkArrayInGroups([0,  1,  2,  3,  4,  5,  6],  3);
 //Output: [ [ 0, 1, 2 ], [ 3, 4, 5 ], [ 6 ] ]
 ```
 Final iteration of for loop for Function Call 5
-|  Loop Iteration|beginIndex| endIndex  |
-|--|--|--|--|
-| 3 | 6 |		9|
 
 | Loop Iteration | beginIndex | endIndex |
 |----------------|------------|----------|
