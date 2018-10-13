@@ -281,6 +281,7 @@ var colt = {
 colt.sayHi(); // Hi Colt...after 1 second
 ```
 &nbsp;
+
 ---
 
 ### 4. The 'new' keyword
