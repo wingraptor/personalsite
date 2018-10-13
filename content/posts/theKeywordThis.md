@@ -281,6 +281,7 @@ var colt = {
 colt.sayHi(); // Hi Colt...after 1 second
 ```
 &nbsp;
+---
 
 ### 4. The 'new' keyword
 The new keyword allows to create a new object. We can set the context of the 'this' keyword by using the 'new' keyword.
