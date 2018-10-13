@@ -1,6 +1,6 @@
 +++
 date = "2018-03-31"
-title = "A Beginner's Introuction to Variables"
+title = "A Beginner's Introduction to Variables"
 
 +++
 In the spirit 👻of keeping things simple and at a beginner level I am going to attempt to explain one of the fundamental aspects of javascript and programming in general, **variables**. Variables was one of the first concepts that I encountered when I started to learn to code and is one of the easiest to grasp. 
