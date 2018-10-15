@@ -10,10 +10,12 @@ Medicinal and biological chemist by degree but budding web developer by (long ho
 
 ### What Do I Know?
 
-- Javascript along with knowledge of jQuery and NodeJs
-- CSS along with knowledge of Bootstrap
+- Vanilla Javascript along with knowledge of jQuery and NodeJs
+- CSS along with knowledge of Bootstrap and Bulma
 - HTML
+- MEN (MongoDB, Express and NodeJs) Stack
 
 ### What Have I Worked On?
 
-Vist my [projects page](/projects/) or [Github](https://github.com/wingraptor) to see what I've made done so far!
+- Completed the Colt Steele Web Developer Bootcamp course on [Udemy](https://www.udemy.com/the-web-developer-bootcamp/)
+- Vist my [projects page](/projects/) or [Github](https://github.com/wingraptor) to see what I've what I'm working on and have done so far!
