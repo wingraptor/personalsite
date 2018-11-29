@@ -1,9 +1,17 @@
 +++
 title = "Projects"
 slug = "projects"
-thumbnail = "images/artisanbeards.png"
+thumbnail = "images/artisanbeards.webp"
 description = "projects"
 +++
+### [Gas Price Calculator](https://guarded-caverns-56336.herokuapp.com/gascalc/new)
+{{% portfolio image="/images/gaspricecalc.webp" alt="beard oil calculator" %}}
+
+###  Description
+
+This project allows users to get an estimate of fuel prices that will pay in Barbados. I originally built this site using using jQuery, vanilla Js, CSS using the Bulma Framework. I then rebuilt it using utilising Node, Express and EJS as the templating language.
+
+{{% /portfolio %}}
 
 ### [Artisan Beards](https://artisanbeards.com)
 
@@ -31,15 +39,6 @@ This was my very first [project](https://wingraptor.github.io/beardoilcalc.githu
 ###  Description
 
 This [website](https://bigtrucksupplies.com) was built using the Shopify platform and as of writing (10/14/2018) it's still a work in progress. The business, Big Truck and Trailer Parts is a partnership between myself and my father, Anthony Brathwaite.
-
-{{% /portfolio %}}
-
-### [Gas Price Calculator](https://guarded-caverns-56336.herokuapp.com/gascalc/new)
-{{% portfolio image="/images/gaspricecalc.webp" alt="beard oil calculator" %}}
-
-###  Description
-
-This project allows users to get an estimate of fuel prices that will pay in Barbados. I originally built this site using using jQuery, vanilla Js, CSS using the Bulma Framework. I then rebuilt it using utilising Node, Express and EJS as the templating language.
 
 {{% /portfolio %}}
 
