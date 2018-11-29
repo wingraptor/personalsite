@@ -7,16 +7,16 @@ description = "projects"
 
 ### [Artisan Beards](https://artisanbeards.com)
 
-{{% portfolio image="/images/artisanbeards.png" alt="Artisan Beards" %}}
+{{% portfolio image="/images/artisanbeards.webp" alt="Artisan Beards" %}}
 
 ###  Description
 
-Utilising the Shopify platform I set up my online business [Artisan Beards](https://artisanbeards.com) to sell beard oils in Barbados. The theme I chose was not modified greatly, due to the chosen theme su 
+I originally set up [this](https://artisanbeards.com) website using the Shopify platform to sell beard oils in Barbados. In order to reduce operating costs to a minimum, I rebuilt this website as a static site using Hexo as the static site generator and hosted it using Netlify for free. I modified a freely available theme in order to make this happen.
 
 {{% /portfolio %}}
 
 ### [Beard Oil Calculator](https://wingraptor.github.io/beardoilcalc.github.io/index.html)
-{{% portfolio image="/images/beardoilcalc.png" alt="beard oil calculator" %}}
+{{% portfolio image="/images/beardoilcalc.webp" alt="beard oil calculator" %}}
 
 ###  Description
 
@@ -26,7 +26,7 @@ This was my very first [project](https://wingraptor.github.io/beardoilcalc.githu
 
 ### [Big Truck and Trailer Parts](https://bigtrucksupplies.com)
 
-{{% portfolio image="/images/bigtrucksupplies.png" alt="Big truck and trailer parts" %}}
+{{% portfolio image="/images/bigtrucksupplies.webp" alt="Big truck and trailer parts" %}}
 
 ###  Description
 
@@ -34,17 +34,17 @@ This [website](https://bigtrucksupplies.com) was built using the Shopify platfor
 
 {{% /portfolio %}}
 
-### [Gas Price Calculator](https://wingraptor.github.io/gasCalculator/)
-{{% portfolio image="/images/gaspricecalc.png" alt="beard oil calculator" %}}
+### [Gas Price Calculator](https://guarded-caverns-56336.herokuapp.com/gascalc/new)
+{{% portfolio image="/images/gaspricecalc.webp" alt="beard oil calculator" %}}
 
 ###  Description
 
-This project allows users to get an estimate of fuel prices that will pay in Barbados. This site was built using jQuery, vanilla Js, CSS using the Bulma Framework. I am also in the process of remaking this site using the MEN (MongoDB, Express and Node) stack to add increased functionality and to gain experience with the backend.
+This project allows users to get an estimate of fuel prices that will pay in Barbados. I originally built this site using using jQuery, vanilla Js, CSS using the Bulma Framework. I then rebuilt it using utilising Node, Express and EJS as the templating language.
 
 {{% /portfolio %}}
 
 ### [CTBoom](https://ctboom.io)
-{{% portfolio image="/images/ctboom.png" alt="Caribbean Tech Boom" %}}
+{{% portfolio image="/images/ctboom.webp" alt="Caribbean Tech Boom" %}}
 
 ###  Description
 
