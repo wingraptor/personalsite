@@ -147,10 +147,14 @@
 </span><span class="c1"></span><span class="nx">test</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>  <span class="mi">4</span><span class="p">);</span> <span class="c1">//Output: 2.25
 </span><span class="c1"></span><span class="nx">test</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>  <span class="mi">2</span><span class="p">);</span> <span class="c1">//Output: 4.5
 </span><span class="c1"></span></code></pre></div>
-<p>Function calls 1-3 all yielded whole numbers where the output represented the number of sub-arrays present in <strong>newArr</strong> and <strong>size</strong> represented the number of elements in each sub-array when <strong>chunkArrayInGroups</strong> was called (See <strong>Code Snippet 3</strong>).</p>
+<p>Function calls 1-3 all yielded whole numbers where the output represented the number of sub-arrays present in <strong>newArr</strong> while <strong>size</strong> represented the number of elements in each sub-array when <strong>chunkArrayInGroups</strong> was called (See <strong>Code Snippet 3</strong>).</p>
 
 <p><strong>Code Snippet 3</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span> 
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">chunkArrayInGroups</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">size</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">newArr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span> 
 <span class="c1">// Output: [[0, 1, 2], [3, 4, 5]] // arr.length / size = 2
 </span><span class="c1">// 2 sub-arrays each containing 3 (size) elements
 </span><span class="c1"></span>
@@ -161,7 +165,11 @@
 <p>Function calls 4-7 all yielded fractions. What I noticed is that whatever function I needed to create, would have to create as many sub-arrays with <strong>size</strong> number of elements in them, and then add the remaining element(s) to the final sub-array.  For function calls where arr.length / size = floating point, the final sub-array will contain a fraction of <strong>size</strong> number of elements (<strong>See Code Snippet 4</strong>)</p>
 
 <p><strong>Code Snippet 4</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">4</span><span class="p">);</span> 
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">chunkArrayInGroups</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">size</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">newArr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">4</span><span class="p">);</span> 
 <span class="c1">//Output: [[0, 1, 2, 3], [4, 5]] // arr.length / size= 1.5
 </span><span class="c1">// 2 sub-arrays, one containing size number of elements.
 </span><span class="c1">// The other containing (0.5 * size) elements
@@ -281,6 +289,12 @@
 </tr>
 
 <tr>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+</tr>
+
+<tr>
 <td>3</td>
 <td>4</td>
 <td>6</td>
@@ -296,7 +310,7 @@
 <li><p><strong>endIndex</strong> = <strong>beginIndex</strong> + <strong>size</strong></p></li>
 </ol>
 
-<p>Using this information, I created a variable, <strong>count</strong> that increases by  <strong>size</strong> during each iteration of the for loop and acts as the beginning index. The <strong>endIndex</strong> therefore becomes <strong>count</strong> + <strong>size</strong> based on the relationship described in conclusion 2 above.</p>
+<p>Using this information, I created a variable, <strong>count</strong> that increases by  <strong>size</strong> during each iteration of the for loop and acts as the beginning index. The <strong>endIndex</strong> therefore becomes <strong>count</strong> + <strong>size</strong> based on the relationship described in the conclusion above.</p>
 
 <p><strong>Code Snippet 7</strong></p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">chunkArrayInGroups</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">size</span><span class="p">){</span>
@@ -324,10 +338,7 @@
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">],</span>  <span class="mi">3</span><span class="p">);</span>
 <span class="c1">//Output: [ [ 0, 1, 2 ], [ 3, 4, 5 ], [ 6 ] ]
 </span><span class="c1"></span></code></pre></div>
-<p>Final iteration of for loop for Function Call 5
-|  Loop Iteration|beginIndex| endIndex  |
-|&ndash;|&ndash;|&ndash;|&ndash;|
-| 3 | 6 |       9|</p>
+<p>Final iteration of for loop for Function Call 5</p>
 
 <table>
 <thead>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Akono Brathwaite">
+    <meta name="description" content="https://www.akonobrathwaite.com">
+    <meta name="keywords" content="blog,developer,personal">
+    
+    <meta property="og:site_name" content="Akono Brathwaite">
+    <meta property="og:title" content="
+  The Keyword this - Akono Brathwaite
+">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.akonobrathwaite.com/posts/thekeywordthis/">
+    <meta property="og:image" content="https://www.akonobrathwaite.com">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="https://www.akonobrathwaite.com/posts/thekeywordthis/">
+    <meta name="twitter:image" content="https://www.akonobrathwaite.com">
+
+    <base href="https://www.akonobrathwaite.com">
+    <title>
+  The Keyword this - Akono Brathwaite
+</title>
+
+    <link rel="canonical" href="https://www.akonobrathwaite.com/posts/thekeywordthis/">
+    
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="https://www.akonobrathwaite.com/css/style.min.css">
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://www.akonobrathwaite.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://www.akonobrathwaite.com/images/favicon-16x16.png" sizes="16x16">
+
+    
+
+    <meta name="generator" content="Hugo 0.49" />
+  </head>
+
+  <body class="">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://www.akonobrathwaite.com/">
+      Akono Brathwaite
+    </a>
+    <input type="checkbox" id="menu-control"/>
+    <label class="menu-mobile  float-right " for="menu-control">
+      <span class="btn-mobile  float-right ">&#9776;</span>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item   align-left  ">
+              <a class="navigation-link" href="https://www.akonobrathwaite.com/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item   align-left  ">
+              <a class="navigation-link" href="https://www.akonobrathwaite.com/about/">About</a>
+            </li>
+          
+            <li class="navigation-item   align-left  ">
+              <a class="navigation-link" href="https://www.akonobrathwaite.com/projects/">Projects</a>
+            </li>
+          
+        
+        
+      </ul>
+    </label>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+  <article>
+    <header>
+      <h1 class="title">The Keyword this</h1>
+      <h2 class="date">October 13, 2018</h2>
+
+      
+    </header>
+
+    
+
+<h2 id="what-is-the-keyword-this">What is the keyword this?</h2>
+
+<p>&lsquo;this&rsquo; is a reserved word in Javascript and is usually determined by how a function is called, i.e., its <strong>execution context</strong>.  Its value is determined at execution. The value of the keyword this can determined using four &ldquo;rules&rdquo;:</p>
+
+<ol>
+<li>Global Rule</li>
+<li>Object/implicit Rule</li>
+<li>Explicit Rule</li>
+<li>Keyword new Rule</li>
+</ol>
+
+<h3 id="1-global-context">1. Global Context</h3>
+
+<p>Occurs when the keyword &lsquo;this&rsquo; is outside of a <strong>declared object</strong>. The value of the keyword &lsquo;this&rsquo; therefore refers to the global object which is the window object for Javascript run in the browser.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// In this case &#39;this&#39; refers to the window object.
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// window
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<p>When variables are declared in the global scope, it is actually an object of the window (in the browser). It is attached to the window object.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//BELOW PERSON IS DECLARED IN GLOBAL SCOPE
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="s2">&#34;Mary&#34;</span><span class="p">;</span>
+<span class="c1">// person is actually attached to the window object and hence, see below:
+</span><span class="c1"></span><span class="nb">window</span><span class="p">.</span><span class="nx">person</span> <span class="o">===</span> <span class="s2">&#34;Mary&#34;</span>
+</code></pre></div>
+<p>&nbsp;</p>
+
+<p>Even if the keyword this occurs in a function, but is still not declared in an object, it still value still refers to the global scope:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">whatIsThis</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>   <span class="c1">// Returns window because this was never declared in an object.
+</span><span class="c1"></span><span class="p">}</span>
+<span class="nx">whatIsThis</span><span class="p">()</span> <span class="c1">// window
+</span><span class="c1"></span>
+<span class="kd">function</span> <span class="nx">variableInThis</span><span class="p">(){</span>
+    <span class="c1">//since the value of this is the window
+</span><span class="c1"></span>    <span class="c1">// all we are doing here is creating a global variable
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">person</span> <span class="o">=</span> <span class="s2">&#34;Mary&#34;</span><span class="p">;</span> <span class="c1">// This is bad practice, good practice is to declare global variables at the top of our code, and assign values later
+</span><span class="c1"></span><span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">)</span><span class="c1">// Mary
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<h4 id="global-context-and-strict-mode">Global Context and Strict Mode</h4>
+
+<p>Strict mode assigns the value of this inside of a function but not declared in an object to undefined. Strict mode can be enabled by including <code>&quot;use strict&quot;</code> in our code. This prevents us from accidentally declaring global variables by referring to an undeclared &lsquo;this&rsquo; in a function which, without strict mode, will assign that variable a value in the global scope</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="s2">&#34;use strict&#34;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// window
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">whatIsThis</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>  
+<span class="p">}</span>
+<span class="nx">whatIsThis</span><span class="p">()</span> <span class="c1">// undefined
+</span><span class="c1"></span>
+<span class="kd">function</span> <span class="nx">variableInThis</span><span class="p">(){</span>
+    <span class="c1">//since we are in strict mode this is undefined
+</span><span class="c1"></span>    <span class="c1">// so what happens if we add a property on undefined
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">person</span> <span class="o">=</span> <span class="s2">&#34;Mary&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">variableInThis</span><span class="p">()</span> <span class="c1">//TypeError, can&#39;t set person on undefined.
+</span><span class="c1">// This happens because in strict mode, &#39;this&#39; is undefined when the keyword this is not declared in an object and is in a function.
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<hr />
+
+<h3 id="2-implicit-object-rule">2.  Implicit /Object Rule</h3>
+
+<p>When the keyword &lsquo;this&rsquo; is inside of a declared object, the value of the keyword this will always be the closest parent object.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Ellie&#34;</span><span class="p">,</span>
+    <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstname</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">determineContext</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">this</span> <span class="o">===</span> <span class="nx">person</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">()</span> <span class="c1">// &#34;Hi Ellie&#34;
+</span><span class="c1"></span><span class="nx">determineContext</span><span class="p">()</span> <span class="c1">// true
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<h4 id="nested-object">Nested Object</h4>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">dog</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="s2">&#34;Hello&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstname</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="nx">determineContext</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="k">this</span> <span class="o">===</span> <span class="nx">person</span><span class="p">;</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">dog</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">();</span> <span class="c1">// Hello undefined
+</span><span class="c1"></span><span class="nx">person</span><span class="p">.</span><span class="nx">dog</span><span class="p">.</span><span class="nx">determineContext</span><span class="p">();</span> <span class="c1">// false
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<hr />
+
+<h3 id="3-explicit-rule">3. Explicit Rule</h3>
+
+<p>We can explicitly state what the value of the keyword &lsquo;this&rsquo; will be by using call, apply or bind methods.</p>
+
+<p><strong>These three methods can only be used by functions and no other datatype.</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Name of Method</th>
+<th>Parameters</th>
+<th>Invoke Immediately?</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Call</td>
+<td>thisArg,a,b,c,d&hellip;</td>
+<td>YES</td>
+</tr>
+
+<tr>
+<td>Apply</td>
+<td>thisArg,[a,b,c,d&hellip;]</td>
+<td>YES</td>
+</tr>
+
+<tr>
+<td>Bind</td>
+<td>thisArg,a,b,c,d&hellip;</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>thisArg</strong> refers to the value that we want the keyword &lsquo;this&rsquo; to be; we explicitly state what the value of the keyword &lsquo;this&rsquo; should be in the method. a,b,c,d refer to the arguments that we are passing to the method for which we have explictly givent the keyword &lsquo;this&rsquo; the value of thisArg.
+&nbsp;</p>
+
+<p><strong>Using The Call Method</strong></p>
+
+<p>In the example below, we explicitly change the value of &lsquo;this&rsquo; in the sayHello function by calling the <strong>call</strong> method and passing &lsquo;person&rsquo; as an argument. Person refers to the person object and thus this is explicitly given the value person.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Ellie&#34;</span><span class="p">,</span>
+    <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstname</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">determineContext</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">this</span> <span class="o">===</span> <span class="nx">person</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">dog</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">sayHello</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="s2">&#34;Hello&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstname</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="nx">determineContext</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="k">this</span> <span class="o">===</span> <span class="nx">person</span><span class="p">;</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">dog</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span> <span class="c1">// Hello Ellie
+</span><span class="c1"></span><span class="nx">person</span><span class="p">.</span><span class="nx">dog</span><span class="p">.</span><span class="nx">determineContext</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span> <span class="c1">// true
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<p><strong>Example: Using Call To DRY up Our Code</strong></p>
+
+<p>The code below works, however, we have duplicated our code. We can however, tidy this up using the call method.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">colt</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Colt&#34;</span><span class="p">,</span>
+  <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">elie</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Ellie&#34;</span><span class="p">,</span>
+  <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">colt</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">();</span> <span class="c1">// Hi Colt
+</span><span class="c1"></span><span class="nx">ellie</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">();</span> <span class="c1">// Hi Ellie
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<p><strong>Refactored Code</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">colt</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Colt&#34;</span><span class="p">,</span>
+  <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">ellie</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="err">&#34;</span><span class="nx">Ellie</span><span class="o">:</span>
+<span class="p">}</span>
+
+<span class="nx">colt</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">();</span> <span class="c1">//Hi Colt
+</span><span class="c1"></span><span class="nx">colt</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">ellie</span><span class="p">);</span> <span class="c1">// Hi Ellie
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<p><strong>Using The Apply Method</strong></p>
+
+<p>In the example below we can see that call and apply work in the same way, but apply takes the arguments as an apply of values.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">colt</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Colt&#34;</span><span class="p">,</span>
+    <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span>
+    <span class="p">},</span> 
+    <span class="nx">addNumbers</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">c</span><span class="p">,</span><span class="nx">d</span><span class="p">){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="s2">&#34;just calculated&#34;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="o">+</span><span class="nx">c</span><span class="o">+</span><span class="nx">d</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">ellie</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Ellie&#34;</span>
+<span class="p">}</span>
+<span class="nx">colt</span><span class="p">.</span><span class="nx">addNumbers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="c1">// Colt just calculated 10
+</span><span class="c1"></span><span class="nx">colt</span><span class="p">.</span><span class="nx">addNumbers</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">ellie</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>  <span class="c1">//Ellie just calculated 10
+</span><span class="c1"></span><span class="nx">colt</span><span class="p">.</span><span class="nx">addNumbers</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">ellie</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="c1">//Ellie just calculated 10
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<p><strong>Using The Bind Method</strong></p>
+
+<p>The bind method works just like the call method, but instead of calling the method right away, it returns a function definition with the keyword this set to the value of the first argument in the bind method.</p>
+
+<ol>
+<li>Bind is useful when we do not know all of the arguments that will be passed to the function; we do not want to invoke the function right away but want to return a new function with some parameters set. This is known as <strong>partial application</strong>.</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">colt</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Colt&#34;</span><span class="p">,</span>
+    <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span>
+    <span class="p">},</span>
+    <span class="nx">addNumbers</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">c</span><span class="p">,</span><span class="nx">d</span><span class="p">){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="s2">&#34; just calculated &#34;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="o">+</span><span class="nx">c</span><span class="o">+</span><span class="nx">d</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">ellie</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Ellie&#34;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">ellieCalc</span> <span class="o">=</span> <span class="nx">colt</span><span class="p">.</span><span class="nx">addNumbers</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">ellie</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="nx">ellieCalc</span><span class="p">();</span> <span class="c1">// Ellie just calculated 10.
+</span><span class="c1"></span>
+<span class="c1">//Alternatively, we can pass some of the arguments, 
+</span><span class="c1">//create the function definition and then call the function by passing more parameters.
+</span><span class="c1"></span>
+<span class="kd">var</span> <span class="nx">ellieCalc2</span> <span class="o">=</span> <span class="nx">colt</span><span class="p">.</span><span class="nx">addNumbers</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">ellie</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="c1">// 
+</span><span class="c1"></span><span class="nx">ellieCalc2</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,);</span> <span class="c1">// Ellie just calculated 10.
+</span><span class="c1">//(1+2) were passed in as function was defined, 
+</span><span class="c1">//(3+4) were passed in on function call.
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<ol>
+<li>Bind is also useful for asynchronous programming. The setTimeout method takes two arguments, the function that will be called and the time interval in ms-1. It is actually a method of the window object.</li>
+</ol>
+
+<p>In the code below, &lsquo;this&rsquo; actually refers to the window; because setTimeout is a method of the window and therefore the function is executed in the global context .</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">colt</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Colt&#34;</span><span class="p">,</span>
+    <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">)</span>
+        <span class="p">},</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">colt</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">();</span> <span class="c1">// Hi undefined ...after 1 second
+</span><span class="c1">// (this.firstName == undefined because there is no firstName key in the window object)
+</span><span class="c1"></span></code></pre></div>
+<p>We can use bind in order to solve this problem, such that &lsquo;this&rsquo; takes on the value of &lsquo;colt&rsquo;. In this case, the &lsquo;this&rsquo; argument of the bind method actually refers to the closest parent object, which is in this case &lsquo;colt&rsquo;. Bind method then binds the value of &lsquo;colt&rsquo; to the &lsquo;this&rsquo; inside of the setTimeout function. Bind allows us to give the correct context to the &lsquo;this&rsquo; keyword in the setTimeout function and allows it to be called after 1 second. If we were to use call or apply the function would execute immediately</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">colt</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Colt&#34;</span><span class="p">,</span>
+    <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">)</span>
+        <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">colt</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">();</span> <span class="c1">// Hi Colt...after 1 second
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<hr />
+
+<h3 id="4-the-new-keyword">4. The &lsquo;new&rsquo; keyword</h3>
+
+<p>The new keyword allows to create a new object. We can set the context of the &lsquo;this&rsquo; keyword by using the &lsquo;new&rsquo; keyword.</p>
+
+<p>&lsquo;new&rsquo; does several things:</p>
+
+<ul>
+<li>Creates an empty object</li>
+<li>Sets the keyword &lsquo;this&rsquo; to be that of an empty object</li>
+<li>Adds the line &lsquo;return this&rsquo; to the end of the function.</li>
+<li>Adds a property onto the empty object called &ldquo;__proto__&rdquo; (called dunder proto), which links the prototype property on the constructor function to the empty object.</li>
+</ul>
+
+<p>In the Person function, be default, &lsquo;this&rsquo; would refer to the global context and have a value of window, however, because we use the new keyword, we can set the context to the ellie variable and &lsquo;this&rsquo; takes on a value of ellie.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">firstname</span><span class="p">,</span><span class="nx">lastname</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="nx">firstname</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span> <span class="o">=</span> <span class="nx">lastname</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">ellie</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">&#34;ellie&#34;</span><span class="p">,</span> <span class="s2">&#34;Goulding&#34;</span><span class="p">);</span>
+<span class="nx">ellie</span><span class="p">.</span><span class="nx">firstName</span> <span class="c1">//&#34;Ellie&#34;
+</span><span class="c1"></span><span class="nx">ellie</span><span class="p">.</span><span class="nx">lastName</span> <span class="c1">// &#34;Goulding&#34;
+</span><span class="c1"></span></code></pre></div>
+  </article>
+
+  <br/>
+
+  
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+  
+</section>
+
+      </div>
+      
+    </main>
+
+    
+
+  <script src="https://www.akonobrathwaite.com/js/app.js"></script>
+  
+  </body>
+</html>

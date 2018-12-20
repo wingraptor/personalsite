@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Akono Brathwaite</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 15 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 13 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.akonobrathwaite.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Keyword this</title>
+      <link>https://www.akonobrathwaite.com/posts/thekeywordthis/</link>
+      <pubDate>Sat, 13 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.akonobrathwaite.com/posts/thekeywordthis/</guid>
+      <description>What is the keyword this? &amp;lsquo;this&amp;rsquo; is a reserved word in Javascript and is usually determined by how a function is called, i.e., its execution context. Its value is determined at execution. The value of the keyword this can determined using four &amp;ldquo;rules&amp;rdquo;:
+ Global Rule Object/implicit Rule Explicit Rule Keyword new Rule  1. Global Context Occurs when the keyword &amp;lsquo;this&amp;rsquo; is outside of a declared object. The value of the keyword &amp;lsquo;this&amp;rsquo; therefore refers to the global object which is the window object for Javascript run in the browser.</description>
+    </item>
     
     <item>
       <title>Chunky Monkey Algorithm Challenge🐒</title>
@@ -42,7 +52,7 @@ Syntax switch (expression) { case value1: //Statements executed when the //resul
     </item>
     
     <item>
-      <title>A Beginner&#39;s Introuction to Variables</title>
+      <title>A Beginner&#39;s Introduction to Variables</title>
       <link>https://www.akonobrathwaite.com/posts/introductiontovariables/</link>
       <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate>
       
