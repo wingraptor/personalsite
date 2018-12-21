@@ -1,78 +1,69 @@
-baseurl = "https://www.akonobrathwaite.com"
+baseURL = "https://example.com"
+languageCode = "en-us"
+defaultContentLanguage = "en"
 title = "Akono Brathwaite"
-theme = ["coder-portfolio-edited", "coder-portfolio"]
-languagecode = "en"
+theme = "hermit"
+# enableGitInfo = true
+pygmentsCodefences  = true
+pygmentsUseClasses  = true
+hasCJKLanguage = true  # If there're Chinese/Japanese/Korean Languages in the content, enable this.
+rssLimit = 10  # Maximum number of items in the RSS feed.
+copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License." # This message is only used by the RSS template.
+enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/functions/emojify/
+# googleAnalytics = "UA-123-45"
+# disqusShortname = "yourdiscussshortname"
 
-paginate = 20
-canonifyurls = true
+[author]
+  name = "Akono Brathwaite"
 
-pygmentsstyle = "b2" # Color-theme or style for syntax highlighting.
-pygmentscodefences = true # Enable code fence background highlighting.
-pygmentscodefencesguesssyntax = true # Enable syntax guessing for code fences without specified language.
-pygmentsUseClasses = true # new add
+[blackfriday]
+  hrefTargetBlank = true
 
-disqusShortname = "yourdiscussshortname"
+[taxonomies]
+  tag = "tags"
+  category = ""  # Categories are disabled by default.
 
 [params]
-    author = "Akono Brathwaite"
-    description = "Akono's personal website and blog"
-    keywords = "blog,developer,personal"
-    info = "Web Developer"
-    avatarurl = "images/avatar2.png"
-    # footercontent = "Enter a text here."
+  dateform        = "Jan 2, 2006"
+  dateformShort   = "Jan 2"
+  dateformNum     = "2006-01-02"
+  dateformNumTime = "2006-01-02 15:04 -0700"
 
-    dateformat = "January 2, 2006"
+  # themeColor = "#494f5c"  # Theme color in meta tags.
+  homeSubtitle = "Web Developer"
+  footerCopyright = ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
+  # gitUrl = "https://github.com/Someone/SomeRepo/commit/" # Prefix of link to the git commit detail page. GitInfo must be enabled.
+  justifyContent = false  # Set "text-align: justify" to .content, requires extended version of Hugo
+  # bgImg = ""  #  Homepage background-image URL
 
-    hideCredits = true
-    hideCopyright = true
+  # Social Icons
+  # Check https://github.com/Track3/hermit#social-icons for more info.
+  [[params.social]]
+    name = "github"
+    url = "https://github.com/wingraptor"
 
-    rtl = false
-
-    # snsShare = true # share button to bottom of page
-
-    thumbnail = "images/tn.png" # default sns thumbnail
-
-    # Custom CSS
-    custom_css = []
-
-# Social links
-[[params.social]]
-    name = "Github"
-    weight = 1
-    url = "https://github.com/wingraptor/"
-# [[params.social]]
-#     name = "Gitlab"
-#     icon = "fab fa-gitlab"
-#     weight = 2
-#     url = "https://gitlab.com/johndoe/"
-[[params.social]]
-    name = "Twitter"
-    weight = 3
-    url = "https://twitter.com/akonobrath/"
-[[params.social]]
-    name = "LinkedIn"
-    weight = 4
+  [[params.social]]
+    name = "linkedin"
     url = "https://www.linkedin.com/in/akono-brathwaite-a0446297/"
-# [[params.social]]
-#     name = "Medium"
-#     icon = "fab fa-medium"
-#     weight = 5
-#     url = "https://medium.com/@johndoe"
 
-# Menu links
-[[menu.main]]
-    name = "Blog"
-    weight = 1
-    url  = "/posts/"
-[[menu.main]]
+  [[params.social]]
+    name = "twitter"
+    url = "https://twitter.com/akonobrath"
+
+
+[menu]
+
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+
+  [[menu.main]]
     name = "About"
-    weight = 2
     url = "/about/"
-[[menu.main]]
+    weight = 20
+
+  [[menu.main]]
     name = "Projects"
-    weight = 3
     url = "/projects/"
-# [[menu.main]]
-#     name = "Contact me"
-#     weight = 5
-#     url = "/contact/"
+    weight = 30

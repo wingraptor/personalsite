@@ -17,5 +17,6 @@ Medicinal and biological chemist by degree but budding web developer by (long ho
 
 ### What Have I Worked On?
 
-- Completed the Colt Steele Web Developer Bootcamp course on [Udemy](https://www.udemy.com/the-web-developer-bootcamp/)
+- Completed [Harvard's CS50](https://courses.edx.org/certificates/517d69c5d088475d9f90ef9b21043c88): CS50's Introduction to Computer Science course on edX.
+- Completed the Colt Steele Web Developer Bootcamp course on [Udemy](http://ude.my/UC-9LNDKRUX).
 - Vist my [projects page](/projects/) or [Github](https://github.com/wingraptor) to see what I've what I'm working on and have done so far!
