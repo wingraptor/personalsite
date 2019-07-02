@@ -1,75 +1,830 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Akono Brathwaite</title>
-    <link>https://www.akonobrathwaite.com/posts/</link>
-    <description>Recent content in Posts on Akono Brathwaite</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 13 Oct 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.akonobrathwaite.com/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>The Keyword this</title>
-      <link>https://www.akonobrathwaite.com/posts/thekeywordthis/</link>
-      <pubDate>Sat, 13 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.akonobrathwaite.com/posts/thekeywordthis/</guid>
-      <description>What is the keyword this? &amp;lsquo;this&amp;rsquo; is a reserved word in Javascript and is usually determined by how a function is called, i.e., its execution context. Its value is determined at execution. The value of the keyword this can determined using four &amp;ldquo;rules&amp;rdquo;:
+	<channel>
+		<title>Posts on Akono Brathwaite</title>
+		<link>https://www.akonobrathwaite.com/posts/</link>
+		<description>Recent content in Posts on Akono Brathwaite</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+		<lastBuildDate>Sat, 13 Oct 2018 00:00:00 +0000</lastBuildDate>
+		<atom:link href="https://www.akonobrathwaite.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>The Keyword this</title>
+			<link>https://www.akonobrathwaite.com/posts/thekeywordthis/</link>
+			<pubDate>Sat, 13 Oct 2018 00:00:00 +0000</pubDate>
+			
+			<guid>https://www.akonobrathwaite.com/posts/thekeywordthis/</guid>
+			<description>What is the keyword this? &amp;lsquo;this&amp;rsquo; is a reserved word in Javascript and is usually determined by how a function is called, i.e., its execution context. Its value is determined at execution. The value of the keyword this can determined using four &amp;ldquo;rules&amp;rdquo;:
  Global Rule Object/implicit Rule Explicit Rule Keyword new Rule  1. Global Context Occurs when the keyword &amp;lsquo;this&amp;rsquo; is outside of a declared object. The value of the keyword &amp;lsquo;this&amp;rsquo; therefore refers to the global object which is the window object for Javascript run in the browser.</description>
-    </item>
-    
-    <item>
-      <title>Chunky Monkey Algorithm Challenge🐒</title>
-      <link>https://www.akonobrathwaite.com/posts/chunkymonkey/</link>
-      <pubDate>Tue, 15 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.akonobrathwaite.com/posts/chunkymonkey/</guid>
-      <description>Today I was able to solve what in reality is a basic Javascript algorithm. For those of you who are more experienced with coding, this algorithm will be easy, but for me, it was a fun challenge. In this post I&amp;rsquo;ll attempt to explain the steps that I (eventually) took to solve it. So buckle up buckaroos and join me on a coding journey.
+			<content type="html"><![CDATA[
+
+<h2 id="what-is-the-keyword-this">What is the keyword this?</h2>
+
+<p>&lsquo;this&rsquo; is a reserved word in Javascript and is usually determined by how a function is called, i.e., its <strong>execution context</strong>.  Its value is determined at execution. The value of the keyword this can determined using four &ldquo;rules&rdquo;:</p>
+
+<ol>
+<li>Global Rule</li>
+<li>Object/implicit Rule</li>
+<li>Explicit Rule</li>
+<li>Keyword new Rule</li>
+</ol>
+
+<h3 id="1-global-context">1. Global Context</h3>
+
+<p>Occurs when the keyword &lsquo;this&rsquo; is outside of a <strong>declared object</strong>. The value of the keyword &lsquo;this&rsquo; therefore refers to the global object which is the window object for Javascript run in the browser.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// In this case &#39;this&#39; refers to the window object.
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// window
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<p>When variables are declared in the global scope, it is actually an object of the window (in the browser). It is attached to the window object.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//BELOW PERSON IS DECLARED IN GLOBAL SCOPE
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="s2">&#34;Mary&#34;</span><span class="p">;</span>
+<span class="c1">// person is actually attached to the window object and hence, see below:
+</span><span class="c1"></span><span class="nb">window</span><span class="p">.</span><span class="nx">person</span> <span class="o">===</span> <span class="s2">&#34;Mary&#34;</span>
+</code></pre></div>
+<p>&nbsp;</p>
+
+<p>Even if the keyword this occurs in a function, but is still not declared in an object, it still value still refers to the global scope:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">whatIsThis</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>   <span class="c1">// Returns window because this was never declared in an object.
+</span><span class="c1"></span><span class="p">}</span>
+<span class="nx">whatIsThis</span><span class="p">()</span> <span class="c1">// window
+</span><span class="c1"></span>
+<span class="kd">function</span> <span class="nx">variableInThis</span><span class="p">(){</span>
+    <span class="c1">//since the value of this is the window
+</span><span class="c1"></span>    <span class="c1">// all we are doing here is creating a global variable
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">person</span> <span class="o">=</span> <span class="s2">&#34;Mary&#34;</span><span class="p">;</span> <span class="c1">// This is bad practice, good practice is to declare global variables at the top of our code, and assign values later
+</span><span class="c1"></span><span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">)</span><span class="c1">// Mary
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<h4 id="global-context-and-strict-mode">Global Context and Strict Mode</h4>
+
+<p>Strict mode assigns the value of this inside of a function but not declared in an object to undefined. Strict mode can be enabled by including <code>&quot;use strict&quot;</code> in our code. This prevents us from accidentally declaring global variables by referring to an undeclared &lsquo;this&rsquo; in a function which, without strict mode, will assign that variable a value in the global scope</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="s2">&#34;use strict&#34;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// window
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">whatIsThis</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>  
+<span class="p">}</span>
+<span class="nx">whatIsThis</span><span class="p">()</span> <span class="c1">// undefined
+</span><span class="c1"></span>
+<span class="kd">function</span> <span class="nx">variableInThis</span><span class="p">(){</span>
+    <span class="c1">//since we are in strict mode this is undefined
+</span><span class="c1"></span>    <span class="c1">// so what happens if we add a property on undefined
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">person</span> <span class="o">=</span> <span class="s2">&#34;Mary&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">variableInThis</span><span class="p">()</span> <span class="c1">//TypeError, can&#39;t set person on undefined.
+</span><span class="c1">// This happens because in strict mode, &#39;this&#39; is undefined when the keyword this is not declared in an object and is in a function.
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<hr />
+
+<h3 id="2-implicit-object-rule">2.  Implicit /Object Rule</h3>
+
+<p>When the keyword &lsquo;this&rsquo; is inside of a declared object, the value of the keyword this will always be the closest parent object.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Ellie&#34;</span><span class="p">,</span>
+    <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstname</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">determineContext</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">this</span> <span class="o">===</span> <span class="nx">person</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">()</span> <span class="c1">// &#34;Hi Ellie&#34;
+</span><span class="c1"></span><span class="nx">determineContext</span><span class="p">()</span> <span class="c1">// true
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<h4 id="nested-object">Nested Object</h4>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">dog</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="s2">&#34;Hello&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstname</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="nx">determineContext</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="k">this</span> <span class="o">===</span> <span class="nx">person</span><span class="p">;</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">dog</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">();</span> <span class="c1">// Hello undefined
+</span><span class="c1"></span><span class="nx">person</span><span class="p">.</span><span class="nx">dog</span><span class="p">.</span><span class="nx">determineContext</span><span class="p">();</span> <span class="c1">// false
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<hr />
+
+<h3 id="3-explicit-rule">3. Explicit Rule</h3>
+
+<p>We can explicitly state what the value of the keyword &lsquo;this&rsquo; will be by using call, apply or bind methods.</p>
+
+<p><strong>These three methods can only be used by functions and no other datatype.</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Name of Method</th>
+<th>Parameters</th>
+<th>Invoke Immediately?</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Call</td>
+<td>thisArg,a,b,c,d&hellip;</td>
+<td>YES</td>
+</tr>
+
+<tr>
+<td>Apply</td>
+<td>thisArg,[a,b,c,d&hellip;]</td>
+<td>YES</td>
+</tr>
+
+<tr>
+<td>Bind</td>
+<td>thisArg,a,b,c,d&hellip;</td>
+<td>NO</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>thisArg</strong> refers to the value that we want the keyword &lsquo;this&rsquo; to be; we explicitly state what the value of the keyword &lsquo;this&rsquo; should be in the method. a,b,c,d refer to the arguments that we are passing to the method for which we have explictly givent the keyword &lsquo;this&rsquo; the value of thisArg.
+&nbsp;</p>
+
+<p><strong>Using The Call Method</strong></p>
+
+<p>In the example below, we explicitly change the value of &lsquo;this&rsquo; in the sayHello function by calling the <strong>call</strong> method and passing &lsquo;person&rsquo; as an argument. Person refers to the person object and thus this is explicitly given the value person.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Ellie&#34;</span><span class="p">,</span>
+    <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstname</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">determineContext</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">this</span> <span class="o">===</span> <span class="nx">person</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">dog</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">sayHello</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="s2">&#34;Hello&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstname</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="nx">determineContext</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="k">this</span> <span class="o">===</span> <span class="nx">person</span><span class="p">;</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">person</span><span class="p">.</span><span class="nx">dog</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span> <span class="c1">// Hello Ellie
+</span><span class="c1"></span><span class="nx">person</span><span class="p">.</span><span class="nx">dog</span><span class="p">.</span><span class="nx">determineContext</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span> <span class="c1">// true
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<p><strong>Example: Using Call To DRY up Our Code</strong></p>
+
+<p>The code below works, however, we have duplicated our code. We can however, tidy this up using the call method.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">colt</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Colt&#34;</span><span class="p">,</span>
+  <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">elie</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Ellie&#34;</span><span class="p">,</span>
+  <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">colt</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">();</span> <span class="c1">// Hi Colt
+</span><span class="c1"></span><span class="nx">ellie</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">();</span> <span class="c1">// Hi Ellie
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<p><strong>Refactored Code</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">colt</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Colt&#34;</span><span class="p">,</span>
+  <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">ellie</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="err">&#34;</span><span class="nx">Ellie</span><span class="o">:</span>
+<span class="p">}</span>
+
+<span class="nx">colt</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">();</span> <span class="c1">//Hi Colt
+</span><span class="c1"></span><span class="nx">colt</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">ellie</span><span class="p">);</span> <span class="c1">// Hi Ellie
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<p><strong>Using The Apply Method</strong></p>
+
+<p>In the example below we can see that call and apply work in the same way, but apply takes the arguments as an apply of values.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">colt</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Colt&#34;</span><span class="p">,</span>
+    <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span>
+    <span class="p">},</span> 
+    <span class="nx">addNumbers</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">c</span><span class="p">,</span><span class="nx">d</span><span class="p">){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="s2">&#34;just calculated&#34;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="o">+</span><span class="nx">c</span><span class="o">+</span><span class="nx">d</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">ellie</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Ellie&#34;</span>
+<span class="p">}</span>
+<span class="nx">colt</span><span class="p">.</span><span class="nx">addNumbers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="c1">// Colt just calculated 10
+</span><span class="c1"></span><span class="nx">colt</span><span class="p">.</span><span class="nx">addNumbers</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">ellie</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>  <span class="c1">//Ellie just calculated 10
+</span><span class="c1"></span><span class="nx">colt</span><span class="p">.</span><span class="nx">addNumbers</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">ellie</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="c1">//Ellie just calculated 10
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<p><strong>Using The Bind Method</strong></p>
+
+<p>The bind method works just like the call method, but instead of calling the method right away, it returns a function definition with the keyword this set to the value of the first argument in the bind method.</p>
+
+<ol>
+<li>Bind is useful when we do not know all of the arguments that will be passed to the function; we do not want to invoke the function right away but want to return a new function with some parameters set. This is known as <strong>partial application</strong>.</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">colt</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Colt&#34;</span><span class="p">,</span>
+    <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span>
+    <span class="p">},</span>
+    <span class="nx">addNumbers</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">c</span><span class="p">,</span><span class="nx">d</span><span class="p">){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="s2">&#34; just calculated &#34;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="o">+</span><span class="nx">c</span><span class="o">+</span><span class="nx">d</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">ellie</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Ellie&#34;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">ellieCalc</span> <span class="o">=</span> <span class="nx">colt</span><span class="p">.</span><span class="nx">addNumbers</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">ellie</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="nx">ellieCalc</span><span class="p">();</span> <span class="c1">// Ellie just calculated 10.
+</span><span class="c1"></span>
+<span class="c1">//Alternatively, we can pass some of the arguments, 
+</span><span class="c1">//create the function definition and then call the function by passing more parameters.
+</span><span class="c1"></span>
+<span class="kd">var</span> <span class="nx">ellieCalc2</span> <span class="o">=</span> <span class="nx">colt</span><span class="p">.</span><span class="nx">addNumbers</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">ellie</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="c1">// 
+</span><span class="c1"></span><span class="nx">ellieCalc2</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,);</span> <span class="c1">// Ellie just calculated 10.
+</span><span class="c1">//(1+2) were passed in as function was defined, 
+</span><span class="c1">//(3+4) were passed in on function call.
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<ol>
+<li>Bind is also useful for asynchronous programming. The setTimeout method takes two arguments, the function that will be called and the time interval in ms-1. It is actually a method of the window object.</li>
+</ol>
+
+<p>In the code below, &lsquo;this&rsquo; actually refers to the window; because setTimeout is a method of the window and therefore the function is executed in the global context .</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">colt</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Colt&#34;</span><span class="p">,</span>
+    <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">)</span>
+        <span class="p">},</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">colt</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">();</span> <span class="c1">// Hi undefined ...after 1 second
+</span><span class="c1">// (this.firstName == undefined because there is no firstName key in the window object)
+</span><span class="c1"></span></code></pre></div>
+<p>We can use bind in order to solve this problem, such that &lsquo;this&rsquo; takes on the value of &lsquo;colt&rsquo;. In this case, the &lsquo;this&rsquo; argument of the bind method actually refers to the closest parent object, which is in this case &lsquo;colt&rsquo;. Bind method then binds the value of &lsquo;colt&rsquo; to the &lsquo;this&rsquo; inside of the setTimeout function. Bind allows us to give the correct context to the &lsquo;this&rsquo; keyword in the setTimeout function and allows it to be called after 1 second. If we were to use call or apply the function would execute immediately</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">colt</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&#34;Colt&#34;</span><span class="p">,</span>
+    <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Hi&#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">)</span>
+        <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">colt</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">();</span> <span class="c1">// Hi Colt...after 1 second
+</span><span class="c1"></span></code></pre></div>
+<p>&nbsp;</p>
+
+<hr />
+
+<h3 id="4-the-new-keyword">4. The &lsquo;new&rsquo; keyword</h3>
+
+<p>The new keyword allows to create a new object. We can set the context of the &lsquo;this&rsquo; keyword by using the &lsquo;new&rsquo; keyword.</p>
+
+<p>&lsquo;new&rsquo; does several things:</p>
+
+<ul>
+<li>Creates an empty object</li>
+<li>Sets the keyword &lsquo;this&rsquo; to be that of an empty object</li>
+<li>Adds the line &lsquo;return this&rsquo; to the end of the function.</li>
+<li>Adds a property onto the empty object called &ldquo;__proto__&rdquo; (called dunder proto), which links the prototype property on the constructor function to the empty object.</li>
+</ul>
+
+<p>In the Person function, be default, &lsquo;this&rsquo; would refer to the global context and have a value of window, however, because we use the new keyword, we can set the context to the ellie variable and &lsquo;this&rsquo; takes on a value of ellie.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">firstname</span><span class="p">,</span><span class="nx">lastname</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">=</span> <span class="nx">firstname</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span> <span class="o">=</span> <span class="nx">lastname</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">ellie</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">&#34;ellie&#34;</span><span class="p">,</span> <span class="s2">&#34;Goulding&#34;</span><span class="p">);</span>
+<span class="nx">ellie</span><span class="p">.</span><span class="nx">firstName</span> <span class="c1">//&#34;Ellie&#34;
+</span><span class="c1"></span><span class="nx">ellie</span><span class="p">.</span><span class="nx">lastName</span> <span class="c1">// &#34;Goulding&#34;
+</span><span class="c1"></span></code></pre></div>]]></content>
+		</item>
+		
+		<item>
+			<title>Chunky Monkey Algorithm Challenge🐒</title>
+			<link>https://www.akonobrathwaite.com/posts/chunkymonkey/</link>
+			<pubDate>Tue, 15 May 2018 00:00:00 +0000</pubDate>
+			
+			<guid>https://www.akonobrathwaite.com/posts/chunkymonkey/</guid>
+			<description>Today I was able to solve what in reality is a basic Javascript algorithm. For those of you who are more experienced with coding, this algorithm will be easy, but for me, it was a fun challenge. In this post I&amp;rsquo;ll attempt to explain the steps that I (eventually) took to solve it. So buckle up buckaroos and join me on a coding journey.
 The Chunky Monkey algorithm is part of the FreeCodeCamp Front-End Web Development Certification.</description>
-    </item>
-    
-    <item>
-      <title>Web Development on My Chromebook</title>
-      <link>https://www.akonobrathwaite.com/posts/developmentonchromebook/</link>
-      <pubDate>Mon, 07 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.akonobrathwaite.com/posts/developmentonchromebook/</guid>
-      <description>I know what you&amp;rsquo;re thinking, a Chromebook&amp;hellip;.for web development. Surely a glorified Chrome browser is not suitable for creating web apps and websites. However, you&amp;rsquo;d be wrong .
+			<content type="html"><![CDATA[
+
+<p>Today I was able to solve what in reality is a basic Javascript algorithm. For those of you who are more experienced with coding, this algorithm will be easy, but for me, it was a fun challenge.  In this post I&rsquo;ll attempt to explain the steps that I (eventually) took to solve it. So buckle up buckaroos and join me on a coding journey.</p>
+
+<p><img src="https://media.giphy.com/media/VNhrzGZDa8mZy/giphy.gif" alt="enter image description here" /></p>
+
+<p>The Chunky Monkey algorithm is part of the <a href="https://www.freecodecamp.org" target="_blank">FreeCodeCamp Front-End Web Development Certification</a>. It required me to write a function that split an array (first argument, <strong>arr</strong>) into groups with lengths equal to the second argument (<strong>size</strong>) and then return them as a two-dimensional array (<strong>newArr</strong>).</p>
+
+<p>See below for the expected outputs using various arguments:</p>
+
+<p><strong>Code Snippet 1</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">chunkArrayInGroups</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">size</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">newArr</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="s2">&#34;c&#34;</span><span class="p">,</span> <span class="s2">&#34;d&#34;</span><span class="p">],</span> <span class="mi">2</span><span class="p">);</span> 
+<span class="c1">// newArr = [[&#34;a&#34;, &#34;b&#34;], [&#34;c&#34;, &#34;d&#34;]]
+</span><span class="c1"></span>
+<span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span> 
+<span class="c1">// newArr = [[0, 1, 2], [3, 4, 5]]
+</span><span class="c1"></span>
+<span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">2</span><span class="p">);</span> 
+<span class="c1">// newArr = [[0, 1], [2, 3], [4, 5]]
+</span><span class="c1"></span>
+<span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">4</span><span class="p">);</span> 
+<span class="c1">// newArr = [[0, 1, 2, 3], [4, 5]]
+</span><span class="c1"></span>
+<span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span> 
+<span class="c1">// newArr = [[0, 1, 2], [3, 4, 5], [6]]
+</span><span class="c1"></span>
+<span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="mi">4</span><span class="p">);</span> 
+<span class="c1">// newArr = [[0, 1, 2, 3], [4, 5, 6, 7], [8]]
+</span><span class="c1"></span>
+<span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="mi">2</span><span class="p">);</span> 
+<span class="c1">// newArr = [[0, 1], [2, 3], [4, 5], [6, 7], [8]]
+</span><span class="c1"></span></code></pre></div>
+<p>The first thing that I noticed is that there were two general classes of  outputs:</p>
+
+<ul>
+<li>The first three function calls all resulted in sub-arrays that each contained the same number of elements.</li>
+<li>The other four function calls resulted in sub-arrays that did not all have the same number of elements.</li>
+</ul>
+
+<p>The first sub-array of all function calls, however, all had lengths = <strong>size</strong>. These observations gave me an idea💡, maybe there was a relationship between the function arguments that I could exploit to construct the desired outputs. Other than datatype, which makes no difference, the only other obvious property of  <strong>arr</strong> that varied was its length (arr.length). Of course <strong>size</strong> also varied from example to example.</p>
+
+<p>In order to find that relationship I decided to write a simple function that divided <strong>arr.length</strong> by <strong>size</strong> and see what those outputs would yield:</p>
+
+<p><strong>Code Snippet 2</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">test</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">size</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="err">/ size);</span>
+<span class="p">}</span>
+<span class="nx">test</span><span class="p">([</span><span class="s2">&#34;a&#34;</span><span class="p">,</span>  <span class="s2">&#34;b&#34;</span><span class="p">,</span>  <span class="s2">&#34;c&#34;</span><span class="p">,</span>  <span class="s2">&#34;d&#34;</span><span class="p">],</span>  <span class="mi">2</span><span class="p">);</span> <span class="c1">//Output:  2
+</span><span class="c1"></span><span class="nx">test</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>  <span class="mi">3</span><span class="p">);</span> <span class="c1">//Output: 2
+</span><span class="c1"></span><span class="nx">test</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>  <span class="mi">2</span><span class="p">);</span> <span class="c1">//Output: 3
+</span><span class="c1"></span><span class="nx">test</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>  <span class="mi">4</span><span class="p">);</span> <span class="c1">//Output: 1.5
+</span><span class="c1"></span><span class="nx">test</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">],</span>  <span class="mi">3</span><span class="p">);</span> <span class="c1">//Output: 2.33
+</span><span class="c1"></span><span class="nx">test</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>  <span class="mi">4</span><span class="p">);</span> <span class="c1">//Output: 2.25
+</span><span class="c1"></span><span class="nx">test</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>  <span class="mi">2</span><span class="p">);</span> <span class="c1">//Output: 4.5
+</span><span class="c1"></span></code></pre></div>
+<p>Function calls 1-3 all yielded whole numbers where the output represented the number of sub-arrays present in <strong>newArr</strong> while <strong>size</strong> represented the number of elements in each sub-array when <strong>chunkArrayInGroups</strong> was called (See <strong>Code Snippet 3</strong>).</p>
+
+<p><strong>Code Snippet 3</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">chunkArrayInGroups</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">size</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">newArr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span> 
+<span class="c1">// Output: [[0, 1, 2], [3, 4, 5]] // arr.length / size = 2
+</span><span class="c1">// 2 sub-arrays each containing 3 (size) elements
+</span><span class="c1"></span>
+<span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">2</span><span class="p">);</span> 
+<span class="c1">//Output: [[0, 1], [2, 3], [4, 5]] // arr.length / size = 3
+</span><span class="c1">// 3 sub-arrays each containing 2 (size) elements
+</span><span class="c1"></span></code></pre></div>
+<p>Function calls 4-7 all yielded fractions. What I noticed is that whatever function I needed to create, would have to create as many sub-arrays with <strong>size</strong> number of elements in them, and then add the remaining element(s) to the final sub-array.  For function calls where arr.length / size = floating point, the final sub-array will contain a fraction of <strong>size</strong> number of elements (<strong>See Code Snippet 4</strong>)</p>
+
+<p><strong>Code Snippet 4</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">chunkArrayInGroups</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">size</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">newArr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">4</span><span class="p">);</span> 
+<span class="c1">//Output: [[0, 1, 2, 3], [4, 5]] // arr.length / size= 1.5
+</span><span class="c1">// 2 sub-arrays, one containing size number of elements.
+</span><span class="c1">// The other containing (0.5 * size) elements
+</span><span class="c1"></span>
+<span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span> 
+<span class="c1">//Output: [[0, 1, 2], [3, 4, 5], [6]] // arr.length / size = 2.33
+</span><span class="c1">// 3 sub-arrays, two containing size number of elements
+</span><span class="c1">// Final array containing (0.33 * size) elements
+</span><span class="c1"></span></code></pre></div>
+<p>With these clues in mind I then went about constructing and testing various functions.  I knew that I would have to iterate through <strong>arr</strong>  using a for loop. With each iteration of the loop I&rsquo;d need to extract elements from <strong>arr</strong> and then add the extracted elements to a new two-dimensional array. I could achieve this by using the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push" target="_blank">push</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank">slice</a> methods. The number of iterations would determine the number of sub-arrays in <strong>newArr</strong>.  From my previous experimentation, I knew that the number of sub-arrays = (arr.length / size); at least for the first three function calls in <strong>Code Snippet 2</strong>.</p>
+
+<p><strong>Code Snippet 5</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">chunkArrayInGroups</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">size</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">newArr</span> <span class="o">=</span>  <span class="p">[];</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span>  <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="err">/size; i++){</span>
+        <span class="nx">newArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">?</span><span class="p">,</span> <span class="o">?</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="k">return</span> <span class="nx">newArr</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>As you can see above, I need to determine what would be valid arguments for the slice method. The first argument represents the index of the first element to be passed into the sub-array. The second argument represents the index of the element up to which is sliced into the sub-array; that element itself not included in the sub-array.</p>
+
+<p>I decided to reverse engineer functions call 1-3 from <strong>Code Snippet 1</strong> to determine how those arguments needed to vary to give me my desired result:</p>
+
+<p><strong>Code Snippet 6</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">chunkArrayInGroups</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">size</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">newArr</span> <span class="o">=</span>  <span class="p">[];</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span>  <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="err">/size; i++){</span>
+        <span class="nx">newArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">beginIndex</span><span class="p">,</span><span class="nx">endIndex</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="k">return</span> <span class="nx">newArr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//Function Call 1
+</span><span class="c1"></span><span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="s2">&#34;c&#34;</span><span class="p">,</span> <span class="s2">&#34;d&#34;</span><span class="p">],</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// [[&#34;a&#34;, &#34;b&#34;], [&#34;c&#34;, &#34;d&#34;]]
+</span><span class="c1"></span>
+<span class="c1">//Function Call 2
+</span><span class="c1"></span><span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// Output: [[0, 1, 2], [3, 4, 5]]
+</span><span class="c1"></span>
+<span class="c1">//Function Call 3
+</span><span class="c1"></span><span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">//Output: [[0, 1], [2, 3], [4, 5]]
+</span><span class="c1"></span></code></pre></div>
+<h2 id="function-call-1"><strong>Function Call 1</strong></h2>
+
+<p><strong>size = 2</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Loop Iteration</th>
+<th>beginIndex</th>
+<th>endIndex</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="function-call-2"><strong>Function Call 2</strong></h2>
+
+<p><strong>size = 3</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Loop Iteration</th>
+<th>beginIndex</th>
+<th>endIndex</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>3</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>3</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="function-call-3"><strong>Function Call 3</strong></h2>
+
+<p><strong>size = 2</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Loop Iteration</th>
+<th>beginIndex</th>
+<th>endIndex</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>4</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+
+<p>Two conclusions can be drawn from the tables above:</p>
+
+<ol>
+<li><p><strong>beginIndex</strong> and <strong>endindex</strong> increase by <strong>size</strong> during each for loop iteration.</p></li>
+
+<li><p><strong>endIndex</strong> = <strong>beginIndex</strong> + <strong>size</strong></p></li>
+</ol>
+
+<p>Using this information, I created a variable, <strong>count</strong> that increases by  <strong>size</strong> during each iteration of the for loop and acts as the beginning index. The <strong>endIndex</strong> therefore becomes <strong>count</strong> + <strong>size</strong> based on the relationship described in the conclusion above.</p>
+
+<p><strong>Code Snippet 7</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">chunkArrayInGroups</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">size</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">newArr</span> <span class="o">=</span>  <span class="p">[];</span>
+    <span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span>  <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="err">/size; i++){</span>
+        <span class="nx">newArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">count</span><span class="p">,</span><span class="nx">count</span> <span class="o">+</span> <span class="nx">size</span><span class="p">));</span>
+        <span class="nx">count</span> <span class="o">=</span> <span class="nx">count</span> <span class="o">+</span> <span class="nx">size</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="k">return</span> <span class="nx">newArr</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The function above works!🎉🎉 You don&rsquo;t even have to take my word for it, give a go below🙏:</p>
+
+<iframe height="400px" width="100%" src="https://repl.it/@akonobrathwaite/ChunkyMonkey-Blog-Post?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+<p><strong>NB</strong>: You can comment out the function calls that you don&rsquo;t want to run.</p>
+
+<p>You may have noticed that this function also works for the function calls where the final outputted sub-array was not the same length as the preceding sub-arrays. This was actually a bit of a mystery for me until I broke down what the final iteration of the for loop was doing.</p>
+
+<p><strong>Function Call 5</strong>
+<strong>size = 3</strong></p>
+
+<p><strong>Code Snippet 8</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">chunkArrayInGroups</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">],</span>  <span class="mi">3</span><span class="p">);</span>
+<span class="c1">//Output: [ [ 0, 1, 2 ], [ 3, 4, 5 ], [ 6 ] ]
+</span><span class="c1"></span></code></pre></div>
+<p>Final iteration of for loop for Function Call 5</p>
+
+<table>
+<thead>
+<tr>
+<th>Loop Iteration</th>
+<th>beginIndex</th>
+<th>endIndex</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>3</td>
+<td>6</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+
+<p>This final iteration of the for loop extracts the element with index 6, up to, but not including the element with index 9. In this case <strong>arr</strong> does not contain an element with index 9. Because of this the slice method just extracts all remaining elements into the final sub-array. See the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank">MDN webdocs</a> for more information.</p>
+
+<p>So that&rsquo;s it! We&rsquo;ve solved the Chunky Monkey Algorithm Challenge.🎆🎆 I hope that you&rsquo;ve enjoyed this journey and have learned a thing or two 😉</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Web Development on My Chromebook</title>
+			<link>https://www.akonobrathwaite.com/posts/developmentonchromebook/</link>
+			<pubDate>Mon, 07 May 2018 00:00:00 +0000</pubDate>
+			
+			<guid>https://www.akonobrathwaite.com/posts/developmentonchromebook/</guid>
+			<description>I know what you&amp;rsquo;re thinking, a Chromebook&amp;hellip;.for web development. Surely a glorified Chrome browser is not suitable for creating web apps and websites. However, you&amp;rsquo;d be wrong .
 Surprise surprise, I&amp;rsquo;m a huge Chromebook fan, so much so that my primary device is the Samsung Chromebook Pro. From the time I used my first chromebook, the Acer C720, I fell in love with their super quick boot up times, hassle-free update handling, excellent battery life and minimalist approach to web browsing.</description>
-    </item>
-    
-    <item>
-      <title>Switching It Up With Switch Statements</title>
-      <link>https://www.akonobrathwaite.com/posts/switchstatements/</link>
-      <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.akonobrathwaite.com/posts/switchstatements/</guid>
-      <description>What are Switch Statements? This is another form of &amp;lsquo;conditional logic&amp;rsquo; that can be used in a javascript program (think If/else statements). Switch statements are useful when many conditions are being evaluated because they can be easier to type or read compared with using if/else statements.
+			<content type="html"><![CDATA[
+
+<p><img src="https://media1.tenor.com/images/3914694abefd92423fb3d8aa2914ec8f/tenor.gif?itemid=4925581" alt="welcomeToInternet" /></p>
+
+<p>I know what you&rsquo;re thinking, a Chromebook&hellip;.for web development. Surely a glorified Chrome browser is not suitable for creating web apps and websites. However, you&rsquo;d be wrong .</p>
+
+<p>Surprise surprise, I&rsquo;m a huge Chromebook fan, so much so that my primary device is the <a href="https://www.samsung.com/us/computing/chromebooks/12-14/samsung-chromebook-pro-xe510c24-k01us/" target="_blank">Samsung Chromebook Pro</a>. From the time I used my first chromebook, the <a href="https://frontendmasters.com/books/front-end-handbook/2018/" target="_blank">Acer C720</a>, I fell in love with their super quick boot up times, hassle-free update handling, excellent battery life and minimalist approach to web browsing.</p>
+
+<p>When I decided to take the plunge to learn web development, my main concern was that a Chromebook would not be adequate and I would have to use my windows machine as my primary learning device. Luckily, I&rsquo;ve found workarounds that in my opinion are superior to using traditional windows apps&hellip;.at least at this nascent stage in my learning process.</p>
+
+<h2 id="how-i-do-it">How I do it?</h2>
+
+<p>I have two primary resources for learning web development. These are Colt Steele&rsquo;s Web Development <a href="https://www.udemy.com/the-web-developer-bootcamp/learn/v4/" target="_blank">Bootcamp</a> on Udemy and <a href="https://www.freecodecamp.org/challenges/check-for-palindromes" target="_blank">freeCodeCamp</a>. Course content is accessed through a web browser for both of these, however, while freeCodeCamp has an in-built code editor, Colt&rsquo;s course does not. Colt recommended the Windows/Linux/Mac app <a href="https://www.sublimetext.com/" target="_blank">Sublime</a>, which is great and all but I was trying to avoid using my Windows machine.</p>
+
+<p>I started out using <a href="https://www.codepen.io" target="_blank">Codepen</a> which is very simple and&hellip;gets the job done, but I wasn&rsquo;t a fan of its layout. It felt a little too far removed from an actual desktop <a href="https://searchsoftwarequality.techtarget.com/definition/integrated-development-environment" target="_blank">Integrated development environment(IDE)</a> for my liking. I then gave <a href="https://c9.io/login" target="_blank">Cloud9</a> a shot, however, I found that it was a bit too complex / feature-rich for my tastes; it is after all part of <a href="https://aws.amazon.com/" target="_blank">AWS</a>.</p>
+
+<p>Luckily I stumbled across <a href="https://www.repl.it" target="_blank">Repl.it</a> which, in my opinion is an excellent compromise between the accessibility of Codepen and the complexity/feature-richness of Cloud9. Using Repl.it I am able to quickly test HTML, CSS and Js individually or all together to create a fully working website. Repl.it also supports virtually every <a href="https://techcrunch.com/2018/03/15/repl-it-lets-you-program-in-your-browser/" target="_blank">programming language / framework</a> that you can think of, which future-proofs it for me when I&rsquo;m ready to learn a new language.</p>
+
+<p>One added benefit of using Repl.it is that my code is saved automatically such that I can access it from any device with an internet browser. I can also embed code that I&rsquo;ve written to any website.</p>
+
+<p>Try the code below and see what happens 😈.</p>
+
+<iframe src="https://repl.it/@akonobrathwaite/LearningToCodeOnChromebook-Blog?lite=true" width="100%" height="400px" frameborder="no" scrolling="no" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals" allowfullscreen="allowfullscreen"></iframe>
+
+<p><img src="https://media.giphy.com/media/ifxLK48cnyDDi/giphy.gif" alt="enter image description here" /></p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Switching It Up With Switch Statements</title>
+			<link>https://www.akonobrathwaite.com/posts/switchstatements/</link>
+			<pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
+			
+			<guid>https://www.akonobrathwaite.com/posts/switchstatements/</guid>
+			<description>What are Switch Statements? This is another form of &amp;lsquo;conditional logic&amp;rsquo; that can be used in a javascript program (think If/else statements). Switch statements are useful when many conditions are being evaluated because they can be easier to type or read compared with using if/else statements.
 Syntax switch (expression) { case value1: //Statements executed when the //result of expression matches value1 break; case value2: //Statements executed when the //result of expression matches value2 break; .</description>
-    </item>
-    
-    <item>
-      <title>A Beginner&#39;s Introduction to Variables</title>
-      <link>https://www.akonobrathwaite.com/posts/introductiontovariables/</link>
-      <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.akonobrathwaite.com/posts/introductiontovariables/</guid>
-      <description>In the spirit 👻of keeping things simple and at a beginner level I am going to attempt to explain one of the fundamental aspects of javascript and programming in general, variables. Variables was one of the first concepts that I encountered when I started to learn to code and is one of the easiest to grasp.
+			<content type="html"><![CDATA[
+
+<h2 id="what-are-switch-statements">What are Switch Statements?</h2>
+
+<p>This is another form of &lsquo;conditional logic&rsquo; that can be used in a javascript program (think If/else statements). Switch statements are useful when many conditions are being evaluated because they can be easier to type or read compared with using if/else statements.</p>
+
+<h3 id="syntax">Syntax</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">switch</span> <span class="p">(</span><span class="nx">expression</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">case</span> <span class="nx">value1</span><span class="o">:</span>
+<span class="c1">//Statements executed when the
+</span><span class="c1">//result of expression matches value1
+</span><span class="c1"></span><span class="k">break</span><span class="p">;</span>
+<span class="k">case</span> <span class="nx">value2</span><span class="o">:</span>
+<span class="c1">//Statements executed when the
+</span><span class="c1">//result of expression matches value2
+</span><span class="c1"></span><span class="k">break</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="k">case</span> <span class="nx">valueN</span><span class="o">:</span>
+<span class="c1">//Statements executed when the
+</span><span class="c1">//result of expression matches valueN
+</span><span class="c1"></span><span class="k">break</span><span class="p">;</span>
+<span class="k">default</span><span class="o">:</span>
+<span class="c1">//Statements executed when none of
+</span><span class="c1">//the values match the value of the expression
+</span><span class="c1"></span><span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// break and default statements are optional.
+</span><span class="c1"></span></code></pre></div>
+<h3 id="description">Description</h3>
+
+<p>Switch statements evaluate an expression (found in parenthesis after the keyword &lsquo;switch&rsquo;) then looks for the first case clause whose expression (found after the keyword &lsquo;case&rsquo;) evaluates to the same value as the original input expression. A match occurs when the values are equal in value and type (strict comparison &lsquo;===&rsquo;). When this occurs the statement(s) in the matching clause are then executed.</p>
+
+<p>If a &lsquo;break;&rsquo; is present in that clause&rsquo;s statement then the program ceases execution of the switch statement and proceeds to the next statement after the switch statement. If there is no break present then the program continues to execute the next statement in the switch statement.</p>
+
+<p>Note that default is an optional clause whose statements are executed if no matching case clause expressions are found. It is most commonly the last clause in the switch statement but this is not a requirement.</p>
+
+<h3 id="example-1">Example 1:</h3>
+
+<iframe src="https://repl.it/@akonobrathwaite/Blog-Switch-Statements-Eg-1?lite=true" width="100%" height="400px" frameborder="no" scrolling="no" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals" allowfullscreen="allowfullscreen"></iframe>
+
+<p>In <strong>Example</strong> <strong>1:</strong> the variable fruit has been assigned the value &lsquo;Bananas&rsquo;. This is then used in the expression to be evaluated in the switch statement. The program goes through each case clause one by one until it finds the clause with the expression that evaluates to &lsquo;Bananas&rsquo;. It then executes the nested statement, which in this case logs &lsquo;Bananas are $0.48 a pound.&rsquo; to the console. The program encounters then encounters &lsquo;<strong>break</strong>&rsquo; which ceases execution of the switch statement .</p>
+
+<p>Go ahead and click the &ldquo;Play&rdquo; button to see what happens.</p>
+
+<h3 id="example-2">Example 2:</h3>
+
+<iframe src="https://repl.it/@akonobrathwaite/Blog-Switch-Statements-Eg-2?lite=true" width="100%" height="400px" frameborder="no" scrolling="no" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals" allowfullscreen="allowfullscreen"></iframe>
+
+<p>In <strong>Example 2</strong> the variable <a href="https://www.youtube.com/watch?v=sV2t3tW_JTQ">MsInBankAccount</a> has been assigned the value &lsquo;7Ms&rsquo;. This is then used as the expression to be evaluated by the switch statement. As you can see, the case clause with the matching expression logs &ldquo;You have one more M to go&rdquo; to the console. Note that there is no <strong>break</strong> in this case clause and because of this the statement in the next clause is executed. This then logs &lsquo;Welcome 21 Savage&rsquo; to the console as well. This statement does contain a <strong>break</strong> which then ceases execution of the switch statement.</p>
+
+<p>Note that MsInBankAccount could be 1M, 2Ms, 3Ms, 4Ms, 5Ms, 6Ms and the output would be the same as for 7Ms. 21 Savage would be proud.</p>
+
+<p><img src="https://media.giphy.com/media/3o8dFsv6Pw69TZzmLK/giphy.gif" alt="21Savage" /></p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>A Beginner&#39;s Introduction to Variables</title>
+			<link>https://www.akonobrathwaite.com/posts/introductiontovariables/</link>
+			<pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate>
+			
+			<guid>https://www.akonobrathwaite.com/posts/introductiontovariables/</guid>
+			<description>In the spirit 👻of keeping things simple and at a beginner level I am going to attempt to explain one of the fundamental aspects of javascript and programming in general, variables. Variables was one of the first concepts that I encountered when I started to learn to code and is one of the easiest to grasp.
 What are Variables? Variables are simply containers for storing things called values. If you&amp;rsquo;re like me you&amp;rsquo;ve only ever encountered variables in Mathematics😱 and they are fundamentally the same in programming.</description>
-    </item>
-    
-    <item>
-      <title>First Post</title>
-      <link>https://www.akonobrathwaite.com/posts/firstpost/</link>
-      <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.akonobrathwaite.com/posts/firstpost/</guid>
-      <description>Welcome to my blog. This is my very first post 🙌 and therefore I&amp;rsquo;m going to answer the who, what and why of this blog. To those of you who may be reading this far into the future, bear in mind that change is guaranteed and the answers to those three questions will change by the time you read this.
+			<content type="html"><![CDATA[
+
+<p>In the spirit 👻of keeping things simple and at a beginner level I am going to attempt to explain one of the fundamental aspects of javascript and programming in general, <strong>variables</strong>. Variables was one of the first concepts that I encountered when I started to learn to code and is one of the easiest to grasp.</p>
+
+<h2 id="what-are-variables">What are Variables?</h2>
+
+<p><strong>Variables are simply containers for storing things called values</strong>. If you&rsquo;re like me you&rsquo;ve only ever encountered variables in Mathematics😱 and they are fundamentally the same in programming.</p>
+
+<p><strong>Both x and y are variables and store the values 10 and 20 + 2 respectively</strong>
+x = 10
+y = 20 + 2</p>
+
+<p>You can think of x and y as boxes with names x and y that store the number 10 and formula 20 + 2 respectively. This is useful because we can then refer to those variables by their names and use them elsewhere.</p>
+
+<p>x + y is the same thing as 10 + 20 +2</p>
+
+<p><em>Note that the above examples work fine in mathematics, however, as we will see, variables are assigned values in a specific way in javascript.</em></p>
+
+<h2 id="how-are-variables-created-in-javascript">How are Variables Created in Javascript?</h2>
+
+<p>Knowing what variables are is all good and well, but how do I create and use them in javascript. Creating a variable is known as <strong>declaring</strong> it in javascript. The first time you declare or better yet <strong>initialise</strong> a variable you use the following format:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">someVariable</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>var</strong> is a keyword which means..you guessed it variable, someVariable is the variable name or <strong>identifier</strong> and <strong>25</strong> is the number stored within someVariable. The = is the <strong>assignment operator</strong> and everything on the right of the assignment operator is evaluated first before that value is assigned to the variable on the left of the assignment operator.</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">someEquation</span> <span class="o">=</span> <span class="mi">22</span><span class="p">;</span>
+<span class="nx">someEquation</span> <span class="o">=</span> <span class="nx">someEquation</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> 
+<span class="nx">someEquation</span> <span class="o">=</span> <span class="mi">24</span><span class="p">;</span> <span class="c1">// 22 (the previous value of someEquation) is added to 2 before
+</span><span class="c1">// someEquation is given its new value 24. 
+</span><span class="c1"></span></code></pre></div>
+<p>The semi-colon is analogous to a full-stop and lets the program know that you&rsquo;re finished declaring the variable.</p>
+
+<p>Note that the variable name can be anything you want provided that it follows these rules:</p>
+
+<ul>
+<li>Names can contain letters, digits, underscores, and dollar signs.</li>
+<li>Names must begin with a letter</li>
+<li>Names can also begin with $ and _ (but we will not use it in this tutorial)</li>
+<li><strong>Names are case sensitive (y and Y are different variables)</strong> - pay attention to this one as it will save you from lots of frustration.</li>
+<li>Reserved words (like JavaScript keywords) cannot be used as names</li>
+</ul>
+
+<h2 id="how-to-use-variables">How to Use Variables?</h2>
+
+<p>Alright, so now that we know what variables are and how to declare them now you&rsquo;ll get a taste of how variables can be used.</p>
+
+<p><img src="https://media.giphy.com/media/l4Jz3a8jO92crUlWM/giphy.gif" alt="#saltbae" /></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">quick</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">maths</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">quick</span> <span class="o">-</span> <span class="nx">maths</span><span class="p">;</span> <span class="c1">// 4-1 evaluates to 3
+</span><span class="c1"></span><span class="nx">quick</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// This changes the value of the variable quick to 10.
+</span><span class="c1"></span><span class="nx">quick</span> <span class="o">-</span> <span class="nx">maths</span><span class="p">;</span> <span class="c1">// This now evaluates to 9
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">fyah</span> <span class="o">=</span> <span class="s2">&#34;man&#39;s&#34;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">inTheBooth</span> <span class="o">=</span> <span class="s2">&#34; not hot&#34;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fyah</span> <span class="o">+</span> <span class="nx">inTheBooth</span><span class="p">);</span> <span class="c1">// This logs &#34;man&#39;s not hot&#34; to the console. 
+</span><span class="c1"></span></code></pre></div>
+<p>As you can see variables can be easily changed from one value to another 🔥🔥. Note that you only use the keyword  <code>var</code>  when you&rsquo;re  <em>creating</em>  a new variable, not when you&rsquo;re  <em>editing</em>  one.</p>
+
+<p>Hopefully you&rsquo;ve been able to learn a thing or two from this short introduction to variables. Feel free to give your feedback and suggestions and ask any questions that you may have, I&rsquo;ll try my best to answer them. 😬</p>
+
+<h2 id="references">References</h2>
+
+<p><a href="https://www.w3schools.com/js/js_variables.asp" target="_blank">https://www.w3schools.com/js/js_variables.asp</a>
+<a href="http://jsforcats.com/" target="_blank">http://jsforcats.com/</a></p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>First Post</title>
+			<link>https://www.akonobrathwaite.com/posts/firstpost/</link>
+			<pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
+			
+			<guid>https://www.akonobrathwaite.com/posts/firstpost/</guid>
+			<description>Welcome to my blog. This is my very first post 🙌 and therefore I&amp;rsquo;m going to answer the who, what and why of this blog. To those of you who may be reading this far into the future, bear in mind that change is guaranteed and the answers to those three questions will change by the time you read this.
 Who am I? I&amp;rsquo;m Akono (this shouldn&amp;rsquo;t change) and at the time of writing I&amp;rsquo;m a beginner when it comes to web development&amp;hellip;.</description>
-    </item>
-    
-  </channel>
+			<content type="html"><![CDATA[
+
+<p>Welcome to my blog. This is my very first post 🙌 and therefore I&rsquo;m going to answer the who, what and why of this blog. To those of you who may be reading this far into the future, bear in mind that change is guaranteed and the answers to those three questions will change by the time you read this.</p>
+
+<h2 id="who-am-i">Who am I?</h2>
+
+<p>I&rsquo;m Akono (this shouldn&rsquo;t change) and at the time of writing I&rsquo;m a beginner when it comes to web development&hellip;.recursion is still black magic, centering elements using CSS feels like pulling teeth and javascript is well&hellip;javascript.</p>
+
+<p>I&rsquo;ve dabbled in e-commerce using <a href="https://www.artisanbeards.com" target="_blank">Shopify</a> and OpenCart and I&rsquo;ve blogged using <a href="https://www.ctboom.io" target="_blank">WordPress</a>. I am currently doing the <a href="https://www.udemy.com/the-web-developer-bootcamp/learn/v4/" target="_blank">Colt&rsquo;s Steele Web Developer Bootcamp</a> and supplementing it with <a href="https://www.freecodecamp.org/challenges/concatenating-strings-with-plus-operator" target="_blank">FreeCodeCamp Front End Development Course</a>.</p>
+
+<p>To be quite honest I don&rsquo;t even know if web development is something that I&rsquo;ll actually enjoy when the going gets tough. As of right now however, I&rsquo;m completely fascinated with the idea of being able to build whatever website or webapp comes to mind 🤓.</p>
+
+<h2 id="what-is-this-blog-for">What is this blog for?</h2>
+
+<p>I see this blog as a space for me to share knowledge gained as I go from a complete beginner to becoming&hellip;decent. I intend to tackle really simple topics through the eyes of a beginner; things that an experienced developer may not realize are difficult for beginners.</p>
+
+<p>I&rsquo;ll try to keep my posts quite pointed but light-hearted💕, focused but tongue-in-cheek 😋, directed but casual (casual emote) etc etc.</p>
+
+<p>On a meta note, you&rsquo;ll be able to see my progression and I&rsquo;ll share techniques, tools and resources that I&rsquo;ve used.</p>
+
+<h2 id="why-am-i-doing-this">Why am I doing this?</h2>
+
+<p>I&rsquo;m doing this because I&rsquo;ve found a way to have 35 hr days and need to use that extra time productively 😶. Okay, back to this reality, I&rsquo;m doing this both to reinforce what I&rsquo;ve learned and to pass on bits of knowledge and insights to others who are just starting out. This site will also act as a test bed for things that I&rsquo;ve learned on my journey so don&rsquo;t be surprised if it&rsquo;s layout changes significantly.</p>
+
+<p>Feel free to leave comments and feedback and if you want to extend your days to 35 hrs follow me on <a href="https://twitter.com/AkonoBrath" target="_blank">twitter</a>.</p>
+]]></content>
+		</item>
+		
+	</channel>
 </rss>
