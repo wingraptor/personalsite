@@ -1,12 +1,10 @@
 +++
 date = "2019-07-02"
 title = "Home Garden Part 1"
-
 +++
 
 
 ## A Fresh, Fresh Start
-
 
 So today is the day that I finally restart my much neglected home garden. I left it in a state of [fallow](https://www.dictionary.com/browse/fallow), actually who am I kidding, laziness and/or apathy resulted in me abandoning it.  I had originally started this garden project in late 2016, I even took pictures with the goal of sharing the whole process from conception through to harvesting the fruits of my labor, but again apathy and/or laziness got in the way. This time however, I will show the “world” how to start a home garden in a true low cost,  cough cheap cough way. 
 
