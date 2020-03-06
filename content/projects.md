@@ -22,7 +22,7 @@ This is a news aggregator web app which displays news articles from popular Barb
 
 This webapp was built using vanilla JS and vanilla CSS (in order to practice core skills) on the front-end, with EJS being used as the templating language. The backend utlises node with express as the web app framework and a NoSQL database(MongoDB).
 
-**Note that site load speed is slow because it currently being hosted on the free Heroku plan, therefore, the instance needs to be spun up after 30mins of activity.**
+**Note that site's load speed is slow because it is currently being hosted on Heroku's free plan. This means that the instance needs to be spun up after ~30mins of activity.**
 
 ### See [GitHub Readme](https://github.com/wingraptor/mobatonnews) for a more information.
 
